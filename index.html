@@ -18,9 +18,12 @@
       :root {
         color-scheme: dark;
         --bg: #030303;
+        --panel: rgba(8, 8, 8, 0.74);
+        --panel-strong: rgba(12, 12, 12, 0.92);
         --fg: #f4f1ed;
         --muted: #a8a29b;
-        --line: rgba(244, 241, 237, 0.16);
+        --soft: rgba(244, 241, 237, 0.68);
+        --line: rgba(244, 241, 237, 0.15);
         --accent: #c80021;
       }
 
@@ -28,13 +31,17 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
         overflow-x: hidden;
         background:
-          radial-gradient(circle at 78% 18%, rgba(200, 0, 33, 0.16), transparent 28rem),
-          linear-gradient(130deg, rgba(255, 255, 255, 0.055), transparent 32%),
+          radial-gradient(circle at 78% 18%, rgba(200, 0, 33, 0.14), transparent 31rem),
+          linear-gradient(130deg, rgba(255, 255, 255, 0.055), transparent 34%),
           var(--bg);
         color: var(--fg);
         font-family: Inter, "Helvetica Neue", Arial, sans-serif;
@@ -48,33 +55,50 @@
         pointer-events: none;
         content: "";
         background-image:
-          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 76px 76px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 80%);
+          linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+        background-size: 82px 82px;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 82%);
       }
 
       .page {
         display: flex;
         min-height: 100vh;
-        padding: clamp(24px, 4vw, 56px);
+        padding: clamp(18px, 4vw, 56px);
       }
 
       .cover {
         position: relative;
         display: grid;
         width: 100%;
-        min-height: calc(100vh - clamp(48px, 8vw, 112px));
-        padding: clamp(26px, 5vw, 72px);
+        min-height: calc(100vh - clamp(36px, 8vw, 112px));
+        padding: clamp(24px, 5vw, 72px);
+        overflow: hidden;
         border: 1px solid var(--line);
-        background: rgba(3, 3, 3, 0.56);
+        background:
+          linear-gradient(180deg, rgba(3, 3, 3, 0.45), rgba(3, 3, 3, 0.78)),
+          var(--panel);
         isolation: isolate;
+      }
+
+      .cover::before {
+        position: absolute;
+        top: 50%;
+        right: clamp(-180px, -8vw, -58px);
+        z-index: -1;
+        width: clamp(520px, 64vw, 940px);
+        aspect-ratio: 1;
+        content: "";
+        background: url("logo.png") center / contain no-repeat;
+        opacity: 0.075;
+        transform: translateY(-53%) rotate(-8deg);
+        filter: grayscale(1);
       }
 
       .cover::after {
         position: absolute;
-        top: clamp(26px, 5vw, 72px);
-        right: clamp(26px, 5vw, 72px);
+        top: clamp(24px, 5vw, 72px);
+        right: clamp(24px, 5vw, 72px);
         width: clamp(74px, 13vw, 168px);
         height: 2px;
         content: "";
@@ -117,7 +141,7 @@
         display: grid;
         align-self: center;
         max-width: 1180px;
-        margin-block: clamp(72px, 13vh, 148px);
+        margin-block: clamp(72px, 13vh, 148px) clamp(48px, 8vh, 86px);
       }
 
       h1 {
@@ -151,21 +175,38 @@
         background: var(--accent);
       }
 
+      .category-tabs {
+        align-self: end;
+      }
+
+      .category-input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
       .categories {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        align-self: end;
         gap: 0;
         border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
       }
 
       .category {
-        display: flex;
-        min-height: 140px;
+        position: relative;
+        display: grid;
+        min-height: clamp(172px, 20vw, 248px);
         padding: clamp(22px, 3vw, 34px) clamp(18px, 3vw, 32px);
+        overflow: hidden;
         border-right: 1px solid var(--line);
         color: var(--fg);
-        text-decoration: none;
+        cursor: pointer;
+        isolation: isolate;
         transition: background 180ms ease, color 180ms ease, transform 180ms ease;
       }
 
@@ -173,8 +214,43 @@
         border-right: 0;
       }
 
-      .category span {
+      .category::before {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        content: "";
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.86)),
+          var(--category-image) center 28% / min(68%, 180px) auto no-repeat;
+        opacity: 0.72;
+        transform: scale(1.02);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .category::after {
+        position: absolute;
+        left: clamp(18px, 3vw, 32px);
+        bottom: clamp(18px, 3vw, 28px);
+        width: 36px;
+        height: 2px;
+        content: "";
+        background: var(--accent);
+        transform: scaleX(0.58);
+        transform-origin: left;
+        transition: transform 180ms ease;
+      }
+
+      .category-kicker {
+        color: var(--muted);
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .category-name {
         align-self: end;
+        margin-bottom: 18px;
         font-size: clamp(1.05rem, 2vw, 1.55rem);
         font-weight: 700;
         letter-spacing: -0.05em;
@@ -182,10 +258,151 @@
 
       .category:hover,
       .category:focus-visible {
-        background: rgba(200, 0, 33, 0.92);
-        color: #fff;
+        background: rgba(200, 0, 33, 0.16);
         outline: none;
         transform: translateY(-3px);
+      }
+
+      .category:hover::before,
+      .category:focus-visible::before {
+        opacity: 0.92;
+        transform: scale(1.07);
+      }
+
+      .category:hover::after,
+      .category:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      #tab-jerseys:checked ~ .categories label[for="tab-jerseys"],
+      #tab-base-layers:checked ~ .categories label[for="tab-base-layers"],
+      #tab-street-line:checked ~ .categories label[for="tab-street-line"] {
+        background: rgba(200, 0, 33, 0.12);
+      }
+
+      #tab-jerseys:checked ~ .categories label[for="tab-jerseys"]::after,
+      #tab-base-layers:checked ~ .categories label[for="tab-base-layers"]::after,
+      #tab-street-line:checked ~ .categories label[for="tab-street-line"]::after {
+        transform: scaleX(1);
+      }
+
+      .details {
+        display: grid;
+        margin-top: clamp(28px, 5vw, 56px);
+      }
+
+      .detail-panel {
+        display: none;
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
+        align-items: center;
+        gap: clamp(28px, 6vw, 86px);
+        padding: clamp(24px, 5vw, 64px);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 42%),
+          var(--panel-strong);
+      }
+
+      #tab-jerseys:checked ~ .details #detail-jerseys,
+      #tab-base-layers:checked ~ .details #detail-base-layers,
+      #tab-street-line:checked ~ .details #detail-street-line {
+        display: grid;
+      }
+
+      .detail-copy {
+        max-width: 520px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .detail-copy h2 {
+        margin: 0;
+        font-size: clamp(2.4rem, 6vw, 6rem);
+        font-weight: 800;
+        line-height: 0.88;
+        letter-spacing: -0.09em;
+        text-transform: uppercase;
+      }
+
+      .detail-copy p {
+        margin: clamp(22px, 4vw, 34px) 0 0;
+        color: var(--soft);
+        font-size: clamp(1rem, 1.7vw, 1.18rem);
+        line-height: 1.75;
+        letter-spacing: -0.02em;
+      }
+
+      .detail-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .detail-meta li {
+        border: 1px solid var(--line);
+        padding: 9px 12px;
+        color: var(--soft);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .product-frame {
+        position: relative;
+        display: grid;
+        min-height: clamp(360px, 58vw, 660px);
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(circle, rgba(200, 0, 33, 0.12), transparent 45%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
+      }
+
+      .product-frame::before {
+        position: absolute;
+        inset: 16px;
+        content: "";
+        border: 1px solid rgba(244, 241, 237, 0.08);
+      }
+
+      .product-image {
+        width: min(78%, 520px);
+        max-height: 88%;
+        object-fit: contain;
+        filter: drop-shadow(0 42px 48px rgba(0, 0, 0, 0.55));
+      }
+
+      .placeholder-note {
+        position: absolute;
+        right: 20px;
+        bottom: 18px;
+        color: var(--muted);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 900px) {
+        .detail-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .detail-copy {
+          max-width: 100%;
+        }
       }
 
       @media (max-width: 760px) {
@@ -196,6 +413,13 @@
         .cover {
           min-height: calc(100vh - 32px);
           padding: 24px;
+        }
+
+        .cover::before {
+          top: 31%;
+          right: -210px;
+          width: 540px;
+          opacity: 0.06;
         }
 
         .cover::after {
@@ -228,17 +452,38 @@
 
         .categories {
           grid-template-columns: 1fr;
-          border-bottom: 1px solid var(--line);
+          border-bottom: 0;
         }
 
         .category {
-          min-height: 82px;
+          min-height: 118px;
           border-right: 0;
           border-bottom: 1px solid var(--line);
         }
 
-        .category:last-child {
-          border-bottom: 0;
+        .category::before {
+          background-position: right 18px center;
+          background-size: auto 116%;
+        }
+
+        .category-name {
+          margin-bottom: 16px;
+        }
+
+        .details {
+          margin-top: 28px;
+        }
+
+        .detail-panel {
+          padding: 22px;
+        }
+
+        .product-frame {
+          min-height: 360px;
+        }
+
+        .product-image {
+          width: min(86%, 360px);
         }
       }
     </style>
@@ -256,12 +501,156 @@
           <p class="subcopy">Race Your Own Path.</p>
         </div>
 
-        <nav class="categories" aria-label="Product categories">
-          <a class="category" href="#jerseys"><span>Jerseys</span></a>
-          <a class="category" href="#base-layers"><span>Base Layers</span></a>
-          <a class="category" href="#street-line"><span>Street Line</span></a>
-        </nav>
+        <section class="category-tabs" aria-label="Product categories">
+          <input class="category-input" type="radio" name="category" id="tab-jerseys" checked />
+          <input class="category-input" type="radio" name="category" id="tab-base-layers" />
+          <input class="category-input" type="radio" name="category" id="tab-street-line" />
+
+          <div class="categories">
+            <label
+              class="category"
+              style="--category-image: url('jersey.png')"
+              for="tab-jerseys"
+              tabindex="0"
+              role="button"
+              aria-controls="detail-jerseys"
+              aria-expanded="true"
+              aria-pressed="true"
+            >
+              <span class="category-kicker">01 / Race fit</span>
+              <span class="category-name">Jerseys</span>
+            </label>
+            <label
+              class="category"
+              style="--category-image: url('assets/base-layer-placeholder.svg')"
+              for="tab-base-layers"
+              tabindex="0"
+              role="button"
+              aria-controls="detail-base-layers"
+              aria-expanded="false"
+              aria-pressed="false"
+            >
+              <span class="category-kicker">02 / First layer</span>
+              <span class="category-name">Base Layers</span>
+            </label>
+            <label
+              class="category"
+              style="--category-image: url('assets/street-line-placeholder.svg')"
+              for="tab-street-line"
+              tabindex="0"
+              role="button"
+              aria-controls="detail-street-line"
+              aria-expanded="false"
+              aria-pressed="false"
+            >
+              <span class="category-kicker">03 / Off-bike</span>
+              <span class="category-name">Street Line</span>
+            </label>
+          </div>
+
+          <div class="details" aria-live="polite">
+            <article class="detail-panel" id="detail-jerseys">
+              <div class="detail-copy">
+                <p class="eyebrow">Selected category</p>
+                <h2>Jerseys</h2>
+                <p>
+                  A temporary product detail area for the racing jersey line. The hero keeps the
+                  ALTERNATIVE RACING title intact while product imagery moves into the category
+                  experience.
+                </p>
+                <ul class="detail-meta">
+                  <li>Aero cut</li>
+                  <li>Lightweight</li>
+                  <li>Red accent</li>
+                </ul>
+              </div>
+              <figure class="product-frame" aria-label="Large jersey product image">
+                <img
+                  class="product-image"
+                  src="jersey.png"
+                  alt="Alternative Racing jersey product image"
+                />
+              </figure>
+            </article>
+
+            <article class="detail-panel" id="detail-base-layers">
+              <div class="detail-copy">
+                <p class="eyebrow">Selected category</p>
+                <h2>Base Layers</h2>
+                <p>
+                  Placeholder copy and artwork for the base layer range. This area can be swapped
+                  with final product photography and specifications later.
+                </p>
+                <ul class="detail-meta">
+                  <li>Thermal balance</li>
+                  <li>Close fit</li>
+                  <li>Prototype</li>
+                </ul>
+              </div>
+              <figure class="product-frame" aria-label="Base layer placeholder image">
+                <img
+                  class="product-image"
+                  src="assets/base-layer-placeholder.svg"
+                  alt="Base layer placeholder product image"
+                />
+                <figcaption class="placeholder-note">Placeholder</figcaption>
+              </figure>
+            </article>
+
+            <article class="detail-panel" id="detail-street-line">
+              <div class="detail-copy">
+                <p class="eyebrow">Selected category</p>
+                <h2>Street Line</h2>
+                <p>
+                  Placeholder copy and artwork for an off-bike collection with the same restrained
+                  black, white, and red visual system.
+                </p>
+                <ul class="detail-meta">
+                  <li>Daily wear</li>
+                  <li>Minimal</li>
+                  <li>Prototype</li>
+                </ul>
+              </div>
+              <figure class="product-frame" aria-label="Street line placeholder image">
+                <img
+                  class="product-image"
+                  src="assets/street-line-placeholder.svg"
+                  alt="Street line placeholder product image"
+                />
+                <figcaption class="placeholder-note">Placeholder</figcaption>
+              </figure>
+            </article>
+          </div>
+        </section>
       </section>
     </main>
+    <script>
+      const categoryCards = document.querySelectorAll(".category");
+
+      const syncCategoryState = () => {
+        categoryCards.forEach((category) => {
+          const input = document.getElementById(category.htmlFor);
+          const isSelected = Boolean(input?.checked);
+
+          category.setAttribute("aria-expanded", String(isSelected));
+          category.setAttribute("aria-pressed", String(isSelected));
+        });
+      };
+
+      categoryCards.forEach((category) => {
+        const input = document.getElementById(category.htmlFor);
+
+        category.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            category.click();
+          }
+        });
+
+        input?.addEventListener("change", syncCategoryState);
+      });
+
+      syncCategoryState();
+    </script>
   </body>
 </html>
