@@ -77,15 +77,15 @@
 
       .cover::before {
         position: absolute;
-        top: 30%;
-        right: clamp(-20px, 5vw, 120px);
+        top: 18vh;
+        right: clamp(-40px, 4vw, 90px);
         z-index: -1;
-        width: clamp(560px, 62vw, 1040px);
+        width: clamp(680px, 72vw, 1220px);
         aspect-ratio: 1;
         content: "";
         background: url("logo.png") center / contain no-repeat;
-        opacity: 0.15;
-        transform: translateY(-36%) rotate(-8deg);
+        opacity: 0.17;
+        transform: rotate(-8deg);
         filter: grayscale(1);
       }
 
@@ -290,10 +290,7 @@
         display: grid;
         grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1.18fr);
         gap: clamp(26px, 6vw, 86px);
-        background:
-          linear-gradient(180deg, rgba(3, 3, 3, 0.24), rgba(3, 3, 3, 0.4)),
-          rgba(12, 12, 12, 0.2);
-        backdrop-filter: blur(1px);
+        background: rgba(3, 3, 3, 0.08);
       }
 
       .philosophy h2,
@@ -620,10 +617,10 @@
         }
 
         .cover::before {
-          top: 145px;
+          top: 92px;
           right: -165px;
-          width: 520px;
-          opacity: 0.13;
+          width: 560px;
+          opacity: 0.14;
           transform: rotate(-8deg);
         }
 
