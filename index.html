@@ -62,15 +62,13 @@
       }
 
       .page {
-        padding: clamp(18px, 4vw, 56px);
+        padding: 0;
       }
 
       .cover {
         position: relative;
         display: grid;
-        min-height: calc(100vh - clamp(36px, 8vw, 112px));
         overflow: hidden;
-        border: 1px solid var(--line);
         background:
           linear-gradient(180deg, rgba(3, 3, 3, 0.45), rgba(3, 3, 3, 0.8)),
           var(--panel);
@@ -79,22 +77,22 @@
 
       .cover::before {
         position: absolute;
-        top: 50%;
-        right: clamp(-180px, -8vw, -58px);
+        top: 46%;
+        right: clamp(-240px, -10vw, -70px);
         z-index: -1;
-        width: clamp(520px, 64vw, 940px);
+        width: clamp(560px, 68vw, 1100px);
         aspect-ratio: 1;
         content: "";
         background: url("logo.png") center / contain no-repeat;
-        opacity: 0.18;
+        opacity: 0.13;
         transform: translateY(-53%) rotate(-8deg);
         filter: grayscale(1);
       }
 
       .hero-wrap {
         display: grid;
-        min-height: 78vh;
-        padding: clamp(24px, 5vw, 72px);
+        min-height: 100vh;
+        padding: clamp(24px, 4.5vw, 72px);
       }
 
       .nav {
@@ -130,20 +128,28 @@
       }
 
       .hero {
-        align-self: center;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+        align-items: end;
+        gap: clamp(26px, 5vw, 80px);
+        align-self: end;
         width: 100%;
-        max-width: 1180px;
-        margin-block: clamp(62px, 10vh, 128px);
+        max-width: 1600px;
+        margin-block: clamp(62px, 10vh, 128px) 0;
       }
 
       h1 {
         margin: 0;
         max-width: 100%;
-        font-size: clamp(3.2rem, 10vw, 9rem);
+        font-size: clamp(5rem, 11.4vw, 13.6rem);
         font-weight: 800;
-        line-height: 0.9;
+        line-height: 0.78;
         letter-spacing: 0;
         text-transform: uppercase;
+      }
+
+      .title-mobile {
+        display: none;
       }
 
       .title-line {
@@ -157,9 +163,41 @@
         margin: clamp(32px, 5vw, 56px) 0 0;
         padding-left: clamp(18px, 3vw, 34px);
         color: var(--fg);
-        font-size: clamp(1.15rem, 2.5vw, 2rem);
+        font-size: clamp(1.2rem, 2.3vw, 2.25rem);
         font-weight: 600;
         line-height: 1.55;
+      }
+
+      .hero-card {
+        display: grid;
+        gap: 18px;
+        align-self: stretch;
+        border-left: 1px solid var(--line);
+        padding-left: clamp(18px, 3vw, 36px);
+      }
+
+      .hero-card img {
+        width: min(100%, 360px);
+        align-self: end;
+        justify-self: end;
+        filter: drop-shadow(0 36px 44px rgba(0, 0, 0, 0.62));
+      }
+
+      .hero-card p {
+        margin: 0;
+        color: var(--soft);
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1.65;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 32px;
       }
 
       .subcopy::before {
@@ -232,7 +270,7 @@
       .categories {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        border-top: 1px solid var(--line);
+        border-top: 0;
         border-bottom: 1px solid var(--line);
       }
 
@@ -521,17 +559,37 @@
         }
 
         .hero {
-          margin-block: 54px 44px;
+          grid-template-columns: 1fr;
+          margin-block: 70px 34px;
         }
 
         h1 {
-          font-size: clamp(2.1rem, 10.3vw, 3.35rem);
-          line-height: 1;
+          font-size: clamp(4.8rem, 26vw, 7.2rem);
+          line-height: 0.78;
+        }
+
+        .title-desktop {
+          display: none;
+        }
+
+        .title-mobile {
+          display: block;
         }
 
         .subcopy {
           max-width: 19rem;
           font-size: 1.05rem;
+        }
+
+        .hero-card {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding: 22px 0 0;
+        }
+
+        .hero-card img {
+          width: min(76vw, 280px);
+          justify-self: start;
         }
 
         .categories {
@@ -578,17 +636,31 @@
           </header>
 
           <div class="hero">
-            <h1>
-              <span class="title-line">ALTERNATIVE</span>
-              <span class="title-line">RACING</span>
-            </h1>
-            <p class="subcopy">
-              &#31478;&#12358;&#30456;&#25163;&#12399;&#12289;&#12356;&#12388;&#12418;&#33258;&#20998;&#12398;&#20869;&#20596;&#12395;&#12356;&#12427;&#12290;
-            </p>
+            <div>
+              <h1 class="title-desktop">
+                <span class="title-line">ALTERNATIVE</span>
+                <span class="title-line">RACING</span>
+              </h1>
+              <h1 class="title-mobile">
+                <span class="title-line">ALT</span>
+                <span class="title-line">RACING</span>
+              </h1>
+              <p class="subcopy">
+                &#31478;&#12358;&#30456;&#25163;&#12399;&#12289;&#12356;&#12388;&#12418;&#33258;&#20998;&#12398;&#20869;&#20596;&#12395;&#12356;&#12427;&#12290;
+              </p>
+              <div class="hero-actions" aria-label="Primary actions">
+                <a class="cta-link" href="#products">&#12467;&#12524;&#12463;&#12471;&#12519;&#12531;&#12434;&#35211;&#12427;</a>
+                <a class="cta-link" href="#philosophy">Philosophy</a>
+              </div>
+            </div>
+            <aside class="hero-card" aria-label="Featured product">
+              <p>Race line / Threefold Karma / Black-white system</p>
+              <img src="jersey.png" alt="Alternative Racing one-piece jersey" />
+            </aside>
           </div>
         </div>
 
-        <section class="section philosophy" aria-label="Brand philosophy">
+        <section class="section philosophy" id="philosophy" aria-label="Brand philosophy">
           <div>
             <p class="section-kicker">Philosophy</p>
             <h2>Race Within</h2>
@@ -606,7 +678,7 @@
           </div>
         </section>
 
-        <section class="category-tabs" aria-label="Product categories">
+        <section class="category-tabs" id="products" aria-label="Product categories">
           <input class="category-input" type="radio" name="category" id="tab-jerseys" checked />
           <input class="category-input" type="radio" name="category" id="tab-base-layers" />
           <input class="category-input" type="radio" name="category" id="tab-street-line" />
@@ -789,6 +861,9 @@
         });
 
         input?.addEventListener("change", syncCategoryState);
+        input?.addEventListener("change", () => {
+          document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
       });
 
       syncCategoryState();
