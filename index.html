@@ -129,21 +129,18 @@
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
-        align-items: end;
-        gap: clamp(26px, 5vw, 80px);
         align-self: end;
         width: 100%;
-        max-width: 1600px;
+        max-width: 1500px;
         margin-block: clamp(62px, 10vh, 128px) 0;
       }
 
       h1 {
         margin: 0;
         max-width: 100%;
-        font-size: clamp(5rem, 11.4vw, 13.6rem);
+        font-size: clamp(4.2rem, 9.2vw, 11rem);
         font-weight: 800;
-        line-height: 0.78;
+        line-height: 0.82;
         letter-spacing: 0;
         text-transform: uppercase;
       }
@@ -166,31 +163,6 @@
         font-size: clamp(1.2rem, 2.3vw, 2.25rem);
         font-weight: 600;
         line-height: 1.55;
-      }
-
-      .hero-card {
-        display: grid;
-        gap: 18px;
-        align-self: stretch;
-        border-left: 1px solid var(--line);
-        padding-left: clamp(18px, 3vw, 36px);
-      }
-
-      .hero-card img {
-        width: min(100%, 360px);
-        align-self: end;
-        justify-self: end;
-        filter: drop-shadow(0 36px 44px rgba(0, 0, 0, 0.62));
-      }
-
-      .hero-card p {
-        margin: 0;
-        color: var(--soft);
-        font-size: 0.9rem;
-        font-weight: 700;
-        line-height: 1.65;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
       }
 
       .hero-actions {
@@ -559,13 +531,12 @@
         }
 
         .hero {
-          grid-template-columns: 1fr;
           margin-block: 70px 34px;
         }
 
         h1 {
-          font-size: clamp(4.8rem, 26vw, 7.2rem);
-          line-height: 0.78;
+          font-size: clamp(4.4rem, 24vw, 6.8rem);
+          line-height: 0.82;
         }
 
         .title-desktop {
@@ -579,17 +550,6 @@
         .subcopy {
           max-width: 19rem;
           font-size: 1.05rem;
-        }
-
-        .hero-card {
-          border-left: 0;
-          border-top: 1px solid var(--line);
-          padding: 22px 0 0;
-        }
-
-        .hero-card img {
-          width: min(76vw, 280px);
-          justify-self: start;
         }
 
         .categories {
@@ -653,10 +613,6 @@
                 <a class="cta-link" href="#philosophy">Philosophy</a>
               </div>
             </div>
-            <aside class="hero-card" aria-label="Featured product">
-              <p>Race line / Threefold Karma / Black-white system</p>
-              <img src="jersey.png" alt="Alternative Racing one-piece jersey" />
-            </aside>
           </div>
         </div>
 
@@ -852,6 +808,7 @@
 
       categoryCards.forEach((category) => {
         const input = document.getElementById(category.htmlFor);
+        const targetId = category.getAttribute("aria-controls");
 
         category.addEventListener("keydown", (event) => {
           if (event.key === "Enter" || event.key === " ") {
@@ -860,9 +817,17 @@
           }
         });
 
+        category.addEventListener("click", () => {
+          window.setTimeout(() => {
+            document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 80);
+        });
+
         input?.addEventListener("change", syncCategoryState);
         input?.addEventListener("change", () => {
-          document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.setTimeout(() => {
+            document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 80);
         });
       });
 
