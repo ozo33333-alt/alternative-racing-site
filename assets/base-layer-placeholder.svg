@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Base layer placeholder</title>
+  <desc id="desc">A dark technical base layer silhouette with red performance accents.</desc>
+  <rect width="720" height="900" fill="#050505"/>
+  <path d="M236 172 332 126h56l96 46 78 116-82 54-38-58v424H278V284l-38 58-82-54 78-116Z" fill="#151515" stroke="#f4f1ed" stroke-opacity=".38" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M288 204c32 24 112 24 144 0" fill="none" stroke="#c80021" stroke-width="12" stroke-linecap="round"/>
+  <path d="M278 338h164M278 420h164M278 502h164" stroke="#f4f1ed" stroke-opacity=".14" stroke-width="6"/>
+  <path d="M236 172 278 284M484 172 442 284" stroke="#c80021" stroke-width="10" stroke-linecap="round"/>
+  <text x="360" y="790" fill="#f4f1ed" fill-opacity=".62" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">BASE LAYERS</text>
+</svg>

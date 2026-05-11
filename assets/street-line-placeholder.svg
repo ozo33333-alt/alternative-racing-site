@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Street line placeholder</title>
+  <desc id="desc">A dark streetwear silhouette with bold red rhythm lines.</desc>
+  <rect width="720" height="900" fill="#050505"/>
+  <path d="M210 244c36-72 94-108 150-108s114 36 150 108l54 108-78 42-34-62v386H268V332l-34 62-78-42 54-108Z" fill="#171717" stroke="#f4f1ed" stroke-opacity=".38" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M270 248c48 34 132 34 180 0" fill="none" stroke="#f4f1ed" stroke-opacity=".32" stroke-width="10" stroke-linecap="round"/>
+  <path d="M236 548c72-54 166-54 248 0M236 612c72-54 166-54 248 0" fill="none" stroke="#c80021" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="292" cy="438" r="15" fill="#c80021"/>
+  <circle cx="428" cy="438" r="15" fill="#c80021"/>
+  <text x="360" y="790" fill="#f4f1ed" fill-opacity=".62" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">STREET LINE</text>
+</svg>

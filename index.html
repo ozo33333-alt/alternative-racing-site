@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ALTERNATIVE RACING - Race Your Own Path. A refined performance cycling label."
+      content="ALTERNATIVE RACING - A performance and streetwear label built around Threefold Karma."
     />
     <title>ALTERNATIVE RACING</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,13 +18,14 @@
       :root {
         color-scheme: dark;
         --bg: #030303;
-        --panel: rgba(8, 8, 8, 0.74);
-        --panel-strong: rgba(12, 12, 12, 0.92);
+        --panel: rgba(8, 8, 8, 0.76);
+        --panel-strong: rgba(12, 12, 12, 0.94);
         --fg: #f4f1ed;
         --muted: #a8a29b;
-        --soft: rgba(244, 241, 237, 0.68);
-        --line: rgba(244, 241, 237, 0.15);
+        --soft: rgba(244, 241, 237, 0.72);
+        --line: rgba(244, 241, 237, 0.16);
         --accent: #c80021;
+        --accent-soft: rgba(200, 0, 33, 0.2);
       }
 
       * {
@@ -45,7 +46,6 @@
           var(--bg);
         color: var(--fg);
         font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-        letter-spacing: -0.02em;
       }
 
       body::before {
@@ -62,21 +62,17 @@
       }
 
       .page {
-        display: flex;
-        min-height: 100vh;
         padding: clamp(18px, 4vw, 56px);
       }
 
       .cover {
         position: relative;
         display: grid;
-        width: 100%;
         min-height: calc(100vh - clamp(36px, 8vw, 112px));
-        padding: clamp(24px, 5vw, 72px);
         overflow: hidden;
         border: 1px solid var(--line);
         background:
-          linear-gradient(180deg, rgba(3, 3, 3, 0.45), rgba(3, 3, 3, 0.78)),
+          linear-gradient(180deg, rgba(3, 3, 3, 0.45), rgba(3, 3, 3, 0.8)),
           var(--panel);
         isolation: isolate;
       }
@@ -95,14 +91,10 @@
         filter: grayscale(1);
       }
 
-      .cover::after {
-        position: absolute;
-        top: clamp(24px, 5vw, 72px);
-        right: clamp(24px, 5vw, 72px);
-        width: clamp(74px, 13vw, 168px);
-        height: 2px;
-        content: "";
-        background: var(--accent);
+      .hero-wrap {
+        display: grid;
+        min-height: 78vh;
+        padding: clamp(24px, 5vw, 72px);
       }
 
       .nav {
@@ -138,31 +130,36 @@
       }
 
       .hero {
-        display: grid;
         align-self: center;
+        width: 100%;
         max-width: 1180px;
-        margin-block: clamp(72px, 13vh, 148px) clamp(48px, 8vh, 86px);
+        margin-block: clamp(62px, 10vh, 128px);
       }
 
       h1 {
-        max-width: 11ch;
         margin: 0;
-        font-size: clamp(4.5rem, 16vw, 14rem);
+        max-width: 100%;
+        font-size: clamp(3.2rem, 10vw, 9rem);
         font-weight: 800;
-        line-height: 0.78;
-        letter-spacing: -0.105em;
+        line-height: 0.9;
+        letter-spacing: 0;
         text-transform: uppercase;
+      }
+
+      .title-line {
+        display: block;
+        white-space: nowrap;
       }
 
       .subcopy {
         position: relative;
-        max-width: 680px;
+        max-width: 720px;
         margin: clamp(32px, 5vw, 56px) 0 0;
         padding-left: clamp(18px, 3vw, 34px);
         color: var(--fg);
         font-size: clamp(1.15rem, 2.5vw, 2rem);
-        font-weight: 500;
-        letter-spacing: -0.04em;
+        font-weight: 600;
+        line-height: 1.55;
       }
 
       .subcopy::before {
@@ -175,8 +172,51 @@
         background: var(--accent);
       }
 
+      .section {
+        padding: clamp(30px, 5vw, 72px);
+        border-top: 1px solid var(--line);
+      }
+
+      .section-kicker {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .philosophy {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1.18fr);
+        gap: clamp(26px, 6vw, 86px);
+        background: var(--panel-strong);
+      }
+
+      .philosophy h2,
+      .category-title {
+        margin: 0;
+        font-size: clamp(2.25rem, 6vw, 5.6rem);
+        font-weight: 800;
+        line-height: 0.95;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .philosophy-copy {
+        display: grid;
+        gap: 18px;
+        color: var(--soft);
+        font-size: clamp(1rem, 1.4vw, 1.12rem);
+        line-height: 1.85;
+      }
+
+      .philosophy-copy p {
+        margin: 0;
+      }
+
       .category-tabs {
-        align-self: end;
+        display: grid;
       }
 
       .category-input {
@@ -192,7 +232,6 @@
       .categories {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 0;
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
       }
@@ -207,7 +246,7 @@
         color: var(--fg);
         cursor: pointer;
         isolation: isolate;
-        transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+        transition: background 180ms ease, transform 180ms ease;
       }
 
       .category:last-child {
@@ -220,9 +259,9 @@
         z-index: -2;
         content: "";
         background:
-          linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.86)),
-          var(--category-image) center 28% / min(68%, 180px) auto no-repeat;
-        opacity: 0.72;
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.86)),
+          var(--category-image) center 28% / min(70%, 190px) auto no-repeat;
+        opacity: 0.76;
         transform: scale(1.02);
         transition: opacity 180ms ease, transform 180ms ease;
       }
@@ -253,12 +292,11 @@
         margin-bottom: 18px;
         font-size: clamp(1.05rem, 2vw, 1.55rem);
         font-weight: 700;
-        letter-spacing: -0.05em;
       }
 
       .category:hover,
       .category:focus-visible {
-        background: rgba(200, 0, 33, 0.16);
+        background: var(--accent-soft);
         outline: none;
         transform: translateY(-3px);
       }
@@ -288,16 +326,15 @@
 
       .details {
         display: grid;
-        margin-top: clamp(28px, 5vw, 56px);
       }
 
       .detail-panel {
         display: none;
-        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
-        align-items: center;
+        grid-template-columns: minmax(0, 0.88fr) minmax(300px, 1.12fr);
+        align-items: start;
         gap: clamp(28px, 6vw, 86px);
         padding: clamp(24px, 5vw, 64px);
-        border: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
         background:
           linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 42%),
           var(--panel-strong);
@@ -310,25 +347,7 @@
       }
 
       .detail-copy {
-        max-width: 520px;
-      }
-
-      .eyebrow {
-        margin: 0 0 18px;
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.24em;
-        text-transform: uppercase;
-      }
-
-      .detail-copy h2 {
-        margin: 0;
-        font-size: clamp(2.4rem, 6vw, 6rem);
-        font-weight: 800;
-        line-height: 0.88;
-        letter-spacing: -0.09em;
-        text-transform: uppercase;
+        max-width: 560px;
       }
 
       .detail-copy p {
@@ -336,14 +355,13 @@
         color: var(--soft);
         font-size: clamp(1rem, 1.7vw, 1.18rem);
         line-height: 1.75;
-        letter-spacing: -0.02em;
       }
 
       .detail-meta {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: 28px;
+        margin: 28px 0 0;
         padding: 0;
         list-style: none;
       }
@@ -358,8 +376,78 @@
         text-transform: uppercase;
       }
 
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .product-card {
+        display: grid;
+        grid-template-columns: 74px minmax(0, 1fr);
+        align-items: center;
+        gap: 14px;
+        min-height: 112px;
+        border: 1px solid var(--line);
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .product-thumb {
+        width: 74px;
+        height: 88px;
+        object-fit: contain;
+        background: #050505;
+      }
+
+      .product-card h3 {
+        margin: 0 0 7px;
+        color: var(--fg);
+        font-size: 0.9rem;
+        line-height: 1.25;
+      }
+
+      .product-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.55;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .cta-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        border: 1px solid var(--line);
+        padding: 12px 16px;
+        color: var(--fg);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+
+      .cta-link:hover,
+      .cta-link:focus-visible {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        outline: none;
+      }
+
       .product-frame {
-        position: relative;
+        position: sticky;
+        top: 24px;
         display: grid;
         min-height: clamp(360px, 58vw, 660px);
         place-items: center;
@@ -384,24 +472,20 @@
         filter: drop-shadow(0 42px 48px rgba(0, 0, 0, 0.55));
       }
 
-      .placeholder-note {
-        position: absolute;
-        right: 20px;
-        bottom: 18px;
-        color: var(--muted);
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
+      .product-image.design-sheet {
+        width: min(100%, 860px);
+        max-height: 92%;
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 960px) {
+        .philosophy,
         .detail-panel {
           grid-template-columns: 1fr;
         }
 
-        .detail-copy {
-          max-width: 100%;
+        .product-frame {
+          position: relative;
+          top: auto;
         }
       }
 
@@ -410,9 +494,14 @@
           padding: 16px;
         }
 
-        .cover {
-          min-height: calc(100vh - 32px);
-          padding: 24px;
+        .hero-wrap,
+        .section,
+        .detail-panel {
+          padding: 22px;
+        }
+
+        .hero-wrap {
+          min-height: auto;
         }
 
         .cover::before {
@@ -422,32 +511,27 @@
           opacity: 0.06;
         }
 
-        .cover::after {
-          top: 24px;
-          right: 24px;
-          width: 72px;
-        }
-
         .nav {
           align-items: flex-start;
           font-size: 0.66rem;
         }
 
         .season {
-          max-width: 11ch;
+          max-width: 13ch;
         }
 
         .hero {
-          margin-block: 68px 56px;
+          margin-block: 54px 44px;
         }
 
         h1 {
-          font-size: clamp(4.1rem, 22vw, 7.2rem);
-          line-height: 0.82;
+          font-size: clamp(2.1rem, 10.3vw, 3.35rem);
+          line-height: 1;
         }
 
         .subcopy {
-          max-width: 15rem;
+          max-width: 19rem;
+          font-size: 1.05rem;
         }
 
         .categories {
@@ -466,16 +550,8 @@
           background-size: auto 116%;
         }
 
-        .category-name {
-          margin-bottom: 16px;
-        }
-
-        .details {
-          margin-top: 28px;
-        }
-
-        .detail-panel {
-          padding: 22px;
+        .product-list {
+          grid-template-columns: 1fr;
         }
 
         .product-frame {
@@ -483,23 +559,52 @@
         }
 
         .product-image {
-          width: min(86%, 360px);
+          width: min(94%, 420px);
+        }
+
+        .product-image.design-sheet {
+          width: 100%;
         }
       }
     </style>
   </head>
   <body>
-    <main class="page" aria-label="ALTERNATIVE RACING cover page">
+    <main class="page" aria-label="ALTERNATIVE RACING">
       <section class="cover">
-        <header class="nav" aria-label="Brand header">
-          <div class="mark">Alternative Racing</div>
-          <div class="season">Performance Line</div>
-        </header>
+        <div class="hero-wrap">
+          <header class="nav" aria-label="Brand header">
+            <div class="mark">Alternative Racing</div>
+            <div class="season">Threefold Karma</div>
+          </header>
 
-        <div class="hero">
-          <h1>ALTERNATIVE RACING</h1>
-          <p class="subcopy">Race Your Own Path.</p>
+          <div class="hero">
+            <h1>
+              <span class="title-line">ALTERNATIVE</span>
+              <span class="title-line">RACING</span>
+            </h1>
+            <p class="subcopy">
+              &#31478;&#12358;&#30456;&#25163;&#12399;&#12289;&#12356;&#12388;&#12418;&#33258;&#20998;&#12398;&#20869;&#20596;&#12395;&#12356;&#12427;&#12290;
+            </p>
+          </div>
         </div>
+
+        <section class="section philosophy" aria-label="Brand philosophy">
+          <div>
+            <p class="section-kicker">Philosophy</p>
+            <h2>Race Within</h2>
+          </div>
+          <div class="philosophy-copy">
+            <p>
+              ALTERNATIVE RACING&#12392;&#12399;&#12289;&#20182;&#32773;&#12392;&#12398;&#31478;&#20105;&#12391;&#12399;&#12394;&#12367;&#12289;&#33258;&#20998;&#33258;&#36523;&#12392;&#12398;&#23550;&#23769;&#12434;&#30446;&#30340;&#12392;&#12375;&#12383;&#31934;&#31070;&#30340;&#12524;&#12540;&#12473;&#12391;&#12354;&#12427;&#12290;
+            </p>
+            <p>
+              &#20154;&#12399;&#12300;&#36523;&#12539;&#21475;&#12539;&#24847;&#12301;&#12392;&#12356;&#12358;&#19977;&#26989;&#12395;&#12424;&#12387;&#12390;&#29694;&#23455;&#12434;&#21109;&#12427;&#12290;&#34892;&#21205;&#12289;&#35328;&#33865;&#12289;&#24605;&#32771;&#12434;&#19968;&#33268;&#12373;&#12379;&#12289;&#30952;&#12365;&#19978;&#12370;&#12427;&#12371;&#12392;&#12391;&#12289;&#26412;&#26469;&#12398;&#21147;&#12399;&#35299;&#25918;&#12373;&#12428;&#12427;&#12290;
+            </p>
+            <p>
+              Threefold Karma&#12399;&#12381;&#12398;&#35937;&#24500;&#12290;&#24515;&#12434;&#25972;&#12360;&#12289;&#35328;&#33865;&#12434;&#36984;&#12403;&#12289;&#34892;&#21205;&#12391;&#35388;&#26126;&#12377;&#12427;&#12290;&#12381;&#12398;&#31309;&#12415;&#37325;&#12397;&#12364;&#26410;&#26469;&#12434;&#22793;&#12360;&#12427;&#12290;
+            </p>
+          </div>
+        </section>
 
         <section class="category-tabs" aria-label="Product categories">
           <input class="category-input" type="radio" name="category" id="tab-jerseys" checked />
@@ -517,12 +622,12 @@
               aria-expanded="true"
               aria-pressed="true"
             >
-              <span class="category-kicker">01 / Race fit</span>
+              <span class="category-kicker">01 / Race line</span>
               <span class="category-name">Jerseys</span>
             </label>
             <label
               class="category"
-              style="--category-image: url('assets/base-layer-placeholder.svg')"
+              style="--category-image: url('assets/base-layer-design.png')"
               for="tab-base-layers"
               tabindex="0"
               role="button"
@@ -530,12 +635,12 @@
               aria-expanded="false"
               aria-pressed="false"
             >
-              <span class="category-kicker">02 / First layer</span>
+              <span class="category-kicker">02 / Sport base</span>
               <span class="category-name">Base Layers</span>
             </label>
             <label
               class="category"
-              style="--category-image: url('assets/street-line-placeholder.svg')"
+              style="--category-image: url('assets/off-bike-design.png')"
               for="tab-street-line"
               tabindex="0"
               role="button"
@@ -543,7 +648,7 @@
               aria-expanded="false"
               aria-pressed="false"
             >
-              <span class="category-kicker">03 / Off-bike</span>
+              <span class="category-kicker">03 / Dance street</span>
               <span class="category-name">Street Line</span>
             </label>
           </div>
@@ -551,73 +656,109 @@
           <div class="details" aria-live="polite">
             <article class="detail-panel" id="detail-jerseys">
               <div class="detail-copy">
-                <p class="eyebrow">Selected category</p>
-                <h2>Jerseys</h2>
+                <p class="section-kicker">Selected category</p>
+                <h2 class="category-title">Jerseys</h2>
                 <p>
-                  A temporary product detail area for the racing jersey line. The hero keeps the
-                  ALTERNATIVE RACING title intact while product imagery moves into the category
-                  experience.
+                  &#20182;&#32773;&#12392;&#12398;&#31478;&#20105;&#12391;&#12399;&#12394;&#12367;&#12289;&#33258;&#20998;&#33258;&#36523;&#12392;&#21521;&#12365;&#21512;&#12358;&#12383;&#12417;&#12398;&#12497;&#12501;&#12457;&#12540;&#12510;&#12531;&#12473;&#12521;&#12452;&#12531;&#12290;&#12524;&#12540;&#12473;&#12391;&#12418;&#12289;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#12391;&#12418;&#12289;&#34892;&#21205;&#12391;&#33258;&#20998;&#12434;&#35388;&#26126;&#12377;&#12427;&#12290;
                 </p>
                 <ul class="detail-meta">
-                  <li>Aero cut</li>
-                  <li>Lightweight</li>
-                  <li>Red accent</li>
+                  <li>Race</li>
+                  <li>Training</li>
+                  <li>Sharp black</li>
                 </ul>
+                <div class="product-list" aria-label="Jerseys products">
+                  <article class="product-card">
+                    <img class="product-thumb" src="jersey.png" alt="Alternative Racing one-piece jersey" />
+                    <div>
+                      <h3>One-piece Jersey</h3>
+                      <p>&#31478;&#25216;&#29992;&#12527;&#12531;&#12500;&#12540;&#12473;&#12479;&#12452;&#12503;</p>
+                    </div>
+                  </article>
+                  <article class="product-card">
+                    <img class="product-thumb" src="assets/racing-tights.png" alt="Alternative Racing long tights" />
+                    <div>
+                      <h3>Long Tights</h3>
+                      <p>&#12524;&#12540;&#12473;&#12539;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#21521;&#12369;</p>
+                    </div>
+                  </article>
+                </div>
+                <div class="cta-row">
+                  <a class="cta-link" href="mailto:hello@example.com">&#21839;&#12356;&#21512;&#12431;&#12379;</a>
+                  <a class="cta-link" href="#" aria-disabled="true">&#36092;&#20837;&#28310;&#20633;&#20013;</a>
+                </div>
               </div>
-              <figure class="product-frame" aria-label="Large jersey product image">
-                <img
-                  class="product-image"
-                  src="jersey.png"
-                  alt="Alternative Racing jersey product image"
-                />
+              <figure class="product-frame" aria-label="One-piece jersey product image">
+                <img class="product-image" src="jersey.png" alt="Alternative Racing one-piece jersey product image" />
               </figure>
             </article>
 
             <article class="detail-panel" id="detail-base-layers">
               <div class="detail-copy">
-                <p class="eyebrow">Selected category</p>
-                <h2>Base Layers</h2>
+                <p class="section-kicker">Selected category</p>
+                <h2 class="category-title">Base Layers</h2>
                 <p>
-                  Placeholder copy and artwork for the base layer range. This area can be swapped
-                  with final product photography and specifications later.
+                  &#36523;&#20307;&#12398;&#21205;&#12365;&#12434;&#25903;&#12360;&#12427;&#12505;&#12540;&#12473;&#12524;&#12452;&#12516;&#12540;&#12290;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#12289;&#12524;&#12540;&#12473;&#12289;&#26085;&#12293;&#12398;&#12467;&#12531;&#12487;&#12451;&#12471;&#12519;&#12531;&#12434;&#20869;&#20596;&#12363;&#12425;&#25972;&#12360;&#12427;&#12290;
                 </p>
                 <ul class="detail-meta">
-                  <li>Thermal balance</li>
+                  <li>Training</li>
                   <li>Close fit</li>
-                  <li>Prototype</li>
+                  <li>Conditioning</li>
                 </ul>
+                <div class="product-list" aria-label="Base Layers products">
+                  <article class="product-card">
+                    <img class="product-thumb" src="assets/base-layer-design.png" alt="Alternative Racing inner shirt" />
+                    <div>
+                      <h3>Inner Shirt</h3>
+                      <p>Threefold Karma base layer</p>
+                    </div>
+                  </article>
+                </div>
+                <div class="cta-row">
+                  <a class="cta-link" href="mailto:hello@example.com">&#21839;&#12356;&#21512;&#12431;&#12379;</a>
+                  <a class="cta-link" href="#" aria-disabled="true">&#36092;&#20837;&#28310;&#20633;&#20013;</a>
+                </div>
               </div>
-              <figure class="product-frame" aria-label="Base layer placeholder image">
+              <figure class="product-frame" aria-label="Base layer design sheet">
                 <img
-                  class="product-image"
-                  src="assets/base-layer-placeholder.svg"
-                  alt="Base layer placeholder product image"
+                  class="product-image design-sheet"
+                  src="assets/base-layer-design.png"
+                  alt="Alternative Racing base layer design sheet"
                 />
-                <figcaption class="placeholder-note">Placeholder</figcaption>
               </figure>
             </article>
 
             <article class="detail-panel" id="detail-street-line">
               <div class="detail-copy">
-                <p class="eyebrow">Selected category</p>
-                <h2>Street Line</h2>
+                <p class="section-kicker">Selected category</p>
+                <h2 class="category-title">Street Line</h2>
                 <p>
-                  Placeholder copy and artwork for an off-bike collection with the same restrained
-                  black, white, and red visual system.
+                  &#12480;&#12531;&#12473;&#12392;&#12473;&#12488;&#12522;&#12540;&#12488;&#12398;&#12383;&#12417;&#12398;&#12521;&#12452;&#12531;&#12290;&#12458;&#12540;&#12523;&#12489;&#12473;&#12463;&#12540;&#12523;&#12289;&#12511;&#12489;&#12523;&#12473;&#12463;&#12540;&#12523;&#12398;&#31354;&#27671;&#12434;&#12414;&#12392;&#12356;&#12289;&#21205;&#12365;&#12391;&#33258;&#20998;&#12398;&#36947;&#12434;&#25551;&#12367;&#12290;
                 </p>
                 <ul class="detail-meta">
-                  <li>Daily wear</li>
-                  <li>Minimal</li>
-                  <li>Prototype</li>
+                  <li>Hip hop</li>
+                  <li>Street</li>
+                  <li>Movement</li>
                 </ul>
+                <div class="product-list" aria-label="Street Line products">
+                  <article class="product-card">
+                    <img class="product-thumb" src="assets/off-bike-design.png" alt="Alternative Racing off-bike long T-shirt" />
+                    <div>
+                      <h3>Oversize Long T-shirt</h3>
+                      <p>Dancer line / Off-bike wear</p>
+                    </div>
+                  </article>
+                </div>
+                <div class="cta-row">
+                  <a class="cta-link" href="mailto:hello@example.com">&#21839;&#12356;&#21512;&#12431;&#12379;</a>
+                  <a class="cta-link" href="#" aria-disabled="true">&#36092;&#20837;&#28310;&#20633;&#20013;</a>
+                </div>
               </div>
-              <figure class="product-frame" aria-label="Street line placeholder image">
+              <figure class="product-frame" aria-label="Street line design sheet">
                 <img
-                  class="product-image"
-                  src="assets/street-line-placeholder.svg"
-                  alt="Street line placeholder product image"
+                  class="product-image design-sheet"
+                  src="assets/off-bike-design.png"
+                  alt="Alternative Racing off-bike street line design sheet"
                 />
-                <figcaption class="placeholder-note">Placeholder</figcaption>
               </figure>
             </article>
           </div>

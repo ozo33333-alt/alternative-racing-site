@@ -1,51 +1,30 @@
 # ALTERNATIVE RACING
 
-シンプルな1ページのトップページです。
+Static brand site for ALTERNATIVE RACING.
 
-## 現在のリポジトリ状態
+## Local Preview
 
-- `index.html` はリポジトリ直下にあります。
-- `.nojekyll` はリポジトリ直下にあります。
-- GitHub Pages用のデプロイ設定は `.github/workflows/pages.yml` にあります。
-- `main` ブランチに push されると、GitHub Actions で GitHub Pages へ公開します。
+Open `index.html` in your browser.
 
-## GitHub remote を設定して公開する手順
+## GitHub Pages
 
-既存のGitHubリポジトリは `ozo33333-alt/alternative-racing-site` です。
+Repository:
 
-1. ターミナルでこのリポジトリのフォルダを開きます。
+```text
+https://github.com/ozo33333-alt/alternative-racing-site
+```
 
-   ```bash
-   cd /workspace/alternative-racing-site
-   ```
-
-2. GitHub remote を設定します。
-
-   ```bash
-   git remote add origin https://github.com/ozo33333-alt/alternative-racing-site.git
-   ```
-
-3. `main` ブランチをGitHubへ push します。
-
-   ```bash
-   git push -u origin main
-   ```
-
-4. GitHubでこのリポジトリを開きます。
-5. **Settings** を開きます。
-6. 左メニューの **Pages** を開きます。
-7. **Source** を **GitHub Actions** にします。
-8. 上メニューの **Actions** を開きます。
-9. **Deploy GitHub Pages** が緑のチェックになるまで待ちます。
-10. 公開URLを開きます。
-
-## 開くべきURL
+Expected public site URL after GitHub Pages deploy:
 
 ```text
 https://ozo33333-alt.github.io/alternative-racing-site/
 ```
 
-## 手元のブラウザで確認する方法
+If the public site does not open yet, commit and push the latest changes from GitHub Desktop, then wait for the GitHub Pages workflow to finish in the Actions tab.
 
-1. `index.html` をダブルクリックします。
-2. ブラウザでトップページが表示されます。
+## Product Assets
+
+- `jersey.png`: One-piece jersey
+- `assets/racing-tights.png`: Long tights
+- `assets/base-layer-design.png`: Inner shirt / base layer
+- `assets/off-bike-design.png`: Oversize long T-shirt / street line
