@@ -77,15 +77,15 @@
 
       .cover::before {
         position: absolute;
-        top: 46%;
-        right: clamp(-240px, -10vw, -70px);
+        top: 23%;
+        right: clamp(24px, 9vw, 180px);
         z-index: -1;
-        width: clamp(560px, 68vw, 1100px);
+        width: clamp(420px, 48vw, 780px);
         aspect-ratio: 1;
         content: "";
         background: url("logo.png") center / contain no-repeat;
-        opacity: 0.13;
-        transform: translateY(-53%) rotate(-8deg);
+        opacity: 0.16;
+        transform: translateY(-34%) rotate(-8deg);
         filter: grayscale(1);
       }
 
@@ -138,9 +138,9 @@
       h1 {
         margin: 0;
         max-width: 100%;
-        font-size: clamp(4.2rem, 9.2vw, 11rem);
+        font-size: clamp(4.8rem, 10.2vw, 12.4rem);
         font-weight: 800;
-        line-height: 0.82;
+        line-height: 0.8;
         letter-spacing: 0;
         text-transform: uppercase;
       }
@@ -515,10 +515,11 @@
         }
 
         .cover::before {
-          top: 31%;
-          right: -210px;
-          width: 540px;
-          opacity: 0.06;
+          top: 110px;
+          right: -130px;
+          width: 420px;
+          opacity: 0.12;
+          transform: rotate(-8deg);
         }
 
         .nav {
@@ -535,8 +536,8 @@
         }
 
         h1 {
-          font-size: clamp(4.4rem, 24vw, 6.8rem);
-          line-height: 0.82;
+          font-size: clamp(4.7rem, 25vw, 7.1rem);
+          line-height: 0.8;
         }
 
         .title-desktop {
