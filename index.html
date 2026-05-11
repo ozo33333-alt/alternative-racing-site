@@ -173,6 +173,95 @@
         margin-top: 32px;
       }
 
+      .shop-band {
+        display: grid;
+        gap: clamp(22px, 4vw, 44px);
+        background: #050505;
+      }
+
+      .shop-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .shop-head h2 {
+        margin: 0;
+        font-size: clamp(2.6rem, 6.8vw, 7.2rem);
+        font-weight: 800;
+        line-height: 0.88;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+      }
+
+      .shop-head p {
+        max-width: 440px;
+        margin: 0;
+        color: var(--soft);
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .shop-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .shop-card {
+        display: grid;
+        grid-template-rows: minmax(260px, 36vw) auto;
+        min-width: 0;
+        color: var(--fg);
+        background: #080808;
+        text-decoration: none;
+      }
+
+      .shop-card-media {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 45%, rgba(200, 0, 33, 0.1), transparent 45%),
+          #050505;
+      }
+
+      .shop-card-media img {
+        width: min(96%, 560px);
+        max-height: 92%;
+        object-fit: contain;
+        filter: drop-shadow(0 32px 44px rgba(0, 0, 0, 0.55));
+        transition: transform 220ms ease;
+      }
+
+      .shop-card:hover .shop-card-media img,
+      .shop-card:focus-visible .shop-card-media img {
+        transform: scale(1.04);
+      }
+
+      .shop-card-copy {
+        display: grid;
+        gap: 10px;
+        padding: 22px;
+      }
+
+      .shop-card-copy h3 {
+        margin: 0;
+        font-size: clamp(1.2rem, 2vw, 1.65rem);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .shop-card-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
       .subcopy::before {
         position: absolute;
         top: 0.18em;
@@ -590,6 +679,18 @@
           grid-template-columns: 1fr;
         }
 
+        .shop-head {
+          display: grid;
+        }
+
+        .shop-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .shop-card {
+          grid-template-rows: minmax(260px, 82vw) auto;
+        }
+
         .product-frame {
           min-height: 360px;
         }
@@ -624,10 +725,10 @@
                 <span class="title-line">RACING</span>
               </h1>
               <p class="subcopy">
-                &#31478;&#12358;&#30456;&#25163;&#12399;&#12289;&#12356;&#12388;&#12418;&#33258;&#20998;&#12398;&#20869;&#20596;&#12395;&#12356;&#12427;&#12290;
+                &#23550;&#25126;&#30456;&#25163;&#12394;&#12393;&#12356;&#12394;&#12356;&#12290;&#25126;&#12387;&#12390;&#12356;&#12427;&#12398;&#12399;&#33258;&#20998;&#33258;&#36523;&#12384;&#12290;
               </p>
               <div class="hero-actions" aria-label="Primary actions">
-                <a class="cta-link" href="#products">&#12467;&#12524;&#12463;&#12471;&#12519;&#12531;&#12434;&#35211;&#12427;</a>
+                <a class="cta-link" href="#shop">Shop collection</a>
                 <a class="cta-link" href="#philosophy">Philosophy</a>
               </div>
             </div>
@@ -649,6 +750,47 @@
             <p>
               Threefold Karma&#12399;&#12381;&#12398;&#35937;&#24500;&#12290;&#24515;&#12434;&#25972;&#12360;&#12289;&#35328;&#33865;&#12434;&#36984;&#12403;&#12289;&#34892;&#21205;&#12391;&#35388;&#26126;&#12377;&#12427;&#12290;&#12381;&#12398;&#31309;&#12415;&#37325;&#12397;&#12364;&#26410;&#26469;&#12434;&#22793;&#12360;&#12427;&#12290;
             </p>
+          </div>
+        </section>
+
+        <section class="section shop-band" id="shop" aria-label="Shop collections">
+          <div class="shop-head">
+            <div>
+              <p class="section-kicker">Shop</p>
+              <h2>Built for movement</h2>
+            </div>
+            <p>
+              &#12524;&#12540;&#12473;&#12289;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#12289;&#12480;&#12531;&#12473;&#12290;ALTERNATIVE RACING&#12398;&#19977;&#12388;&#12398;&#12521;&#12452;&#12531;&#12434;&#12289;&#30446;&#30340;&#12363;&#12425;&#36984;&#12406;&#12290;
+            </p>
+          </div>
+          <div class="shop-grid">
+            <a class="shop-card" href="#detail-jerseys" data-tab="tab-jerseys">
+              <div class="shop-card-media">
+                <img src="jersey.png" alt="Alternative Racing race line" />
+              </div>
+              <div class="shop-card-copy">
+                <h3>Race Line</h3>
+                <p>One-piece jersey / Long tights</p>
+              </div>
+            </a>
+            <a class="shop-card" href="#detail-base-layers" data-tab="tab-base-layers">
+              <div class="shop-card-media">
+                <img src="assets/base-layer-design.png" alt="Alternative Racing base layer line" />
+              </div>
+              <div class="shop-card-copy">
+                <h3>Base Layers</h3>
+                <p>Inner shirt for sport and conditioning</p>
+              </div>
+            </a>
+            <a class="shop-card" href="#detail-street-line" data-tab="tab-street-line">
+              <div class="shop-card-media">
+                <img src="assets/off-bike-design.png" alt="Alternative Racing street line" />
+              </div>
+              <div class="shop-card-copy">
+                <h3>Street Line</h3>
+                <p>Dancer line / Off-bike wear</p>
+              </div>
+            </a>
           </div>
         </section>
 
@@ -835,6 +977,7 @@
     <script>
       const categoryCards = document.querySelectorAll(".category");
       const productCards = document.querySelectorAll(".product-card[data-preview]");
+      const shopCards = document.querySelectorAll(".shop-card[data-tab]");
 
       const syncCategoryState = () => {
         categoryCards.forEach((category) => {
@@ -898,6 +1041,25 @@
             event.preventDefault();
             selectProduct(card);
           }
+        });
+      });
+
+      shopCards.forEach((card) => {
+        card.addEventListener("click", (event) => {
+          const input = document.getElementById(card.dataset.tab);
+
+          if (!input) {
+            return;
+          }
+
+          event.preventDefault();
+          input.checked = true;
+          syncCategoryState();
+
+          const target = document.querySelector(card.getAttribute("href"));
+          window.setTimeout(() => {
+            target?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 80);
         });
       });
 
