@@ -77,15 +77,15 @@
 
       .cover::before {
         position: absolute;
-        top: 23%;
-        right: clamp(24px, 9vw, 180px);
+        top: 30%;
+        right: clamp(-20px, 5vw, 120px);
         z-index: -1;
-        width: clamp(420px, 48vw, 780px);
+        width: clamp(560px, 62vw, 1040px);
         aspect-ratio: 1;
         content: "";
         background: url("logo.png") center / contain no-repeat;
-        opacity: 0.16;
-        transform: translateY(-34%) rotate(-8deg);
+        opacity: 0.15;
+        transform: translateY(-36%) rotate(-8deg);
         filter: grayscale(1);
       }
 
@@ -131,16 +131,16 @@
         display: grid;
         align-self: end;
         width: 100%;
-        max-width: 1500px;
+        max-width: 1760px;
         margin-block: clamp(62px, 10vh, 128px) 0;
       }
 
       h1 {
         margin: 0;
         max-width: 100%;
-        font-size: clamp(4.8rem, 10.2vw, 12.4rem);
+        font-size: clamp(5.4rem, 12vw, 15.8rem);
         font-weight: 800;
-        line-height: 0.8;
+        line-height: 0.76;
         letter-spacing: 0;
         text-transform: uppercase;
       }
@@ -200,7 +200,10 @@
         display: grid;
         grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1.18fr);
         gap: clamp(26px, 6vw, 86px);
-        background: var(--panel-strong);
+        background:
+          linear-gradient(180deg, rgba(3, 3, 3, 0.24), rgba(3, 3, 3, 0.4)),
+          rgba(12, 12, 12, 0.2);
+        backdrop-filter: blur(1px);
       }
 
       .philosophy h2,
@@ -402,6 +405,18 @@
         border: 1px solid var(--line);
         padding: 12px;
         background: rgba(255, 255, 255, 0.03);
+        color: inherit;
+        cursor: pointer;
+        text-align: left;
+        transition: border-color 180ms ease, background 180ms ease;
+      }
+
+      .product-card:hover,
+      .product-card:focus-visible,
+      .product-card.is-active {
+        border-color: var(--accent);
+        background: rgba(200, 0, 33, 0.12);
+        outline: none;
       }
 
       .product-thumb {
@@ -515,10 +530,10 @@
         }
 
         .cover::before {
-          top: 110px;
-          right: -130px;
-          width: 420px;
-          opacity: 0.12;
+          top: 145px;
+          right: -165px;
+          width: 520px;
+          opacity: 0.13;
           transform: rotate(-8deg);
         }
 
@@ -536,8 +551,8 @@
         }
 
         h1 {
-          font-size: clamp(4.7rem, 25vw, 7.1rem);
-          line-height: 0.8;
+          font-size: clamp(5rem, 27vw, 7.8rem);
+          line-height: 0.76;
         }
 
         .title-desktop {
@@ -696,14 +711,30 @@
                   <li>Sharp black</li>
                 </ul>
                 <div class="product-list" aria-label="Jerseys products">
-                  <article class="product-card">
+                  <article
+                    class="product-card is-active"
+                    tabindex="0"
+                    role="button"
+                    data-preview="jersey.png"
+                    data-target="jerseys-preview"
+                    data-alt="Alternative Racing one-piece jersey product image"
+                    aria-pressed="true"
+                  >
                     <img class="product-thumb" src="jersey.png" alt="Alternative Racing one-piece jersey" />
                     <div>
                       <h3>One-piece Jersey</h3>
                       <p>&#31478;&#25216;&#29992;&#12527;&#12531;&#12500;&#12540;&#12473;&#12479;&#12452;&#12503;</p>
                     </div>
                   </article>
-                  <article class="product-card">
+                  <article
+                    class="product-card"
+                    tabindex="0"
+                    role="button"
+                    data-preview="assets/racing-tights.png"
+                    data-target="jerseys-preview"
+                    data-alt="Alternative Racing long tights design sheet"
+                    aria-pressed="false"
+                  >
                     <img class="product-thumb" src="assets/racing-tights.png" alt="Alternative Racing long tights" />
                     <div>
                       <h3>Long Tights</h3>
@@ -717,7 +748,12 @@
                 </div>
               </div>
               <figure class="product-frame" aria-label="One-piece jersey product image">
-                <img class="product-image" src="jersey.png" alt="Alternative Racing one-piece jersey product image" />
+                <img
+                  class="product-image"
+                  id="jerseys-preview"
+                  src="jersey.png"
+                  alt="Alternative Racing one-piece jersey product image"
+                />
               </figure>
             </article>
 
@@ -796,6 +832,7 @@
     </main>
     <script>
       const categoryCards = document.querySelectorAll(".category");
+      const productCards = document.querySelectorAll(".product-card[data-preview]");
 
       const syncCategoryState = () => {
         categoryCards.forEach((category) => {
@@ -829,6 +866,36 @@
           window.setTimeout(() => {
             document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
           }, 80);
+        });
+      });
+
+      const selectProduct = (card) => {
+        const target = document.getElementById(card.dataset.target);
+
+        if (!target) {
+          return;
+        }
+
+        target.src = card.dataset.preview;
+        target.alt = card.dataset.alt || "";
+
+        document
+          .querySelectorAll(`.product-card[data-target="${card.dataset.target}"]`)
+          .forEach((item) => {
+            const isSelected = item === card;
+            item.classList.toggle("is-active", isSelected);
+            item.setAttribute("aria-pressed", String(isSelected));
+          });
+      };
+
+      productCards.forEach((card) => {
+        card.addEventListener("click", () => selectProduct(card));
+
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectProduct(card);
+          }
         });
       });
 
