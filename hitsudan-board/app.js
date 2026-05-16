@@ -8,6 +8,12 @@ const fontRange = document.querySelector("#fontRange");
 
 const defaultPlaceholder = "ここに表示";
 
+async function clearOldServiceWorkers() {
+  if (!("serviceWorker" in navigator)) return;
+  const registrations = await navigator.serviceWorker.getRegistrations();
+  await Promise.all(registrations.map((registration) => registration.unregister()));
+}
+
 function syncMirror() {
   const text = input.value.trim();
   mirrorText.textContent = text || defaultPlaceholder;
@@ -40,9 +46,4 @@ input.addEventListener("input", () => {
 
 flipButton.setAttribute("aria-pressed", "true");
 syncMirror();
-
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
-  });
-}
+clearOldServiceWorkers().catch(() => {});
