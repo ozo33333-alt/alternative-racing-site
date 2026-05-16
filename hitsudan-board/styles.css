@@ -66,6 +66,7 @@ textarea {
   inset: 0;
   display: none;
   overflow: hidden;
+  text-align: right;
   transform: rotate(180deg);
   transform-origin: center;
   pointer-events: none;
