@@ -21,6 +21,17 @@ function syncMirror() {
   mirrorText.classList.toggle("empty", !text);
 }
 
+function beginEditing() {
+  app.classList.add("editing");
+  input.focus({ preventScroll: true });
+}
+
+function endEditingSoon() {
+  setTimeout(() => {
+    if (document.activeElement !== input) app.classList.remove("editing");
+  }, 80);
+}
+
 function syncMirrorScrollFromInput() {
   if (syncingScroll) return;
   syncingScroll = true;
@@ -46,6 +57,7 @@ fontRange.addEventListener("input", () => {
 
 flipButton.addEventListener("click", () => {
   const flipped = app.classList.toggle("flipped");
+  app.classList.remove("editing");
   flipButton.classList.toggle("active", flipped);
   flipButton.setAttribute("aria-pressed", String(flipped));
   speechStatus.textContent = flipped ? "上下反転中" : "通常表示中";
@@ -59,9 +71,11 @@ clearButton.addEventListener("click", () => {
   input.scrollTop = 0;
   mirrorText.scrollTop = 0;
   syncMirror();
-  input.focus();
+  beginEditing();
 });
 
+input.addEventListener("focus", () => app.classList.add("editing"));
+input.addEventListener("blur", endEditingSoon);
 input.addEventListener("input", () => {
   input.placeholder = defaultPlaceholder;
   syncMirror();
@@ -69,6 +83,8 @@ input.addEventListener("input", () => {
 });
 
 input.addEventListener("scroll", syncMirrorScrollFromInput);
+mirrorText.addEventListener("click", beginEditing);
+mirrorText.addEventListener("touchend", beginEditing);
 mirrorText.addEventListener("scroll", syncInputScrollFromMirror);
 
 flipButton.setAttribute("aria-pressed", "true");
