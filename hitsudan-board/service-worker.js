@@ -1,4 +1,4 @@
-const CACHE_NAME = "hitsudan-board-public-v7";
+const CACHE_NAME = "hitsudan-board-public-v8";
 const ASSETS = [
   "./",
   "./index.html",
