@@ -2,10 +2,10 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
     <title>筆談ボード</title>
     <meta name="theme-color" content="#0f766e">
-    <meta name="description" content="文字と音声入力で会話するシンプルな筆談ボード">
+    <meta name="description" content="スマホChrome向けの音声入力筆談ボード">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="icon.svg">
@@ -13,8 +13,8 @@
   </head>
   <body>
     <main class="app">
-      <section class="display" aria-live="polite" aria-label="文字画面">
-        <textarea id="messageInput" autocomplete="off" spellcheck="false" placeholder="ここに表示"></textarea>
+      <section class="display" aria-live="polite" aria-label="相手に見せる文字">
+        <div id="displayText">ここに表示</div>
       </section>
 
       <section class="controls" aria-label="操作">
@@ -22,7 +22,7 @@
         <button id="clearButton" type="button">リセット</button>
         <label>
           文字サイズ
-          <input id="fontRange" type="range" min="36" max="120" value="72">
+          <input id="fontRange" type="range" min="36" max="120" value="76">
         </label>
       </section>
 
