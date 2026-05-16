@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>筆談ボード</title>
     <meta name="theme-color" content="#0f766e">
-    <meta name="description" content="耳の聞こえない人との会話に使える筆談ボード">
+    <meta name="description" content="文字と音声入力で会話するシンプルな筆談ボード">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="icon.svg">
@@ -13,56 +13,21 @@
   </head>
   <body>
     <main class="app">
-      <section class="topbar" aria-label="操作">
-        <div>
-          <h1>筆談ボード</h1>
-          <p id="speechStatus">音声入力は停止中</p>
-        </div>
-        <div class="actions">
-          <button id="installButton" type="button" hidden>インストール</button>
-          <button id="micButton" type="button">音声入力</button>
-          <button id="showButton" type="button">見せる</button>
-          <button id="clearButton" type="button">消す</button>
-        </div>
+      <section class="display" aria-live="polite" aria-label="文字画面">
+        <textarea id="messageInput" autocomplete="off" spellcheck="false" placeholder="ここに表示"></textarea>
       </section>
 
-      <section id="installHint" class="install-hint">
-        <strong>iPhoneに入れる</strong>
-        <span>Safariで開いて、共有ボタンから「ホーム画面に追加」を選んでください。音声は入力欄を押してキーボードのマイクを使います。</span>
+      <section class="controls" aria-label="操作">
+        <button id="micButton" type="button">マイク</button>
+        <button id="clearButton" type="button">リセット</button>
+        <label>
+          文字サイズ
+          <input id="fontRange" type="range" min="36" max="120" value="72">
+        </label>
       </section>
 
-      <section class="qr-panel" aria-label="iPhone用QRコード">
-        <div>
-          <strong>iPhoneで開くQRコード</strong>
-          <p>iPhoneのカメラで読み取ってください。</p>
-          <a href="https://ozo33333-alt.github.io/alternative-racing-site/hitsudan-board/">https://ozo33333-alt.github.io/alternative-racing-site/hitsudan-board/</a>
-        </div>
-        <img alt="筆談ボードをiPhoneで開くQRコード" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=12&data=https%3A%2F%2Fozo33333-alt.github.io%2Falternative-racing-site%2Fhitsudan-board%2F">
-      </section>
-
-      <section class="composer" aria-label="会話入力">
-        <textarea id="messageInput" autocomplete="off" spellcheck="false" placeholder="ここに入力。相手に見せたい言葉を大きく表示できます。"></textarea>
-        <div class="toolbar" aria-label="表示設定">
-          <button class="phrase" type="button">少し待ってください</button>
-          <button class="phrase" type="button">もう一度お願いします</button>
-          <button class="phrase" type="button">ゆっくり話してください</button>
-          <button class="phrase" type="button">ありがとうございます</button>
-          <label>
-            文字サイズ
-            <input id="fontRange" type="range" min="36" max="120" value="68">
-          </label>
-        </div>
-      </section>
-
-      <section class="display" aria-live="polite" aria-label="大きな表示">
-        <div id="displayText">ここに大きく表示されます</div>
-      </section>
+      <p id="speechStatus" class="status">音声入力は停止中</p>
     </main>
-
-    <div id="presenter" class="presenter" hidden>
-      <button id="closePresenter" type="button" aria-label="閉じる">閉じる</button>
-      <div id="presenterText"></div>
-    </div>
 
     <script src="app.js"></script>
   </body>
