@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>筆談ボード</title>
+    <meta name="theme-color" content="#0f766e">
+    <meta name="description" content="耳の聞こえない人との会話に使える筆談ボード">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar" aria-label="操作">
+        <div>
+          <h1>筆談ボード</h1>
+          <p id="speechStatus">入力欄を押して、iPhoneキーボードのマイクを使えます</p>
+        </div>
+        <div class="actions">
+          <button id="installButton" type="button" hidden>インストール</button>
+          <button id="showButton" type="button">見せる</button>
+          <button id="clearButton" type="button">消す</button>
+        </div>
+      </section>
+
+      <section id="installHint" class="install-hint">
+        <strong>iPhoneに入れる</strong>
+        <span>Safariで共有ボタンを押して「ホーム画面に追加」を選んでください。</span>
+      </section>
+
+      <section class="composer" aria-label="会話入力">
+        <textarea id="messageInput" autocomplete="off" spellcheck="false" placeholder="ここに入力。相手に見せたい言葉を大きく表示できます。"></textarea>
+        <div class="toolbar" aria-label="表示設定">
+          <button class="phrase" type="button">少し待ってください</button>
+          <button class="phrase" type="button">もう一度お願いします</button>
+          <button class="phrase" type="button">ゆっくり話してください</button>
+          <button class="phrase" type="button">ありがとうございます</button>
+          <label>
+            文字サイズ
+            <input id="fontRange" type="range" min="36" max="120" value="68">
+          </label>
+        </div>
+      </section>
+
+      <section class="display" aria-live="polite" aria-label="大きな表示">
+        <div id="displayText">ここに大きく表示されます</div>
+      </section>
+    </main>
+
+    <div id="presenter" class="presenter" hidden>
+      <button id="closePresenter" type="button" aria-label="閉じる">閉じる</button>
+      <div id="presenterText"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
