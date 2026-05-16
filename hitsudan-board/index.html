@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
     <title>筆談ボード</title>
     <meta name="theme-color" content="#0f766e">
-    <meta name="description" content="スマホChrome向けの音声入力筆談ボード">
+    <meta name="description" content="スマホChrome向けの筆談ボード">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="icon.svg">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="app">
+    <main class="app flipped">
       <section class="display" aria-live="polite" aria-label="相手に見せる文字">
         <textarea id="messageInput" autocomplete="off" spellcheck="false" inputmode="text" placeholder="ここに表示"></textarea>
       </section>
 
       <section class="controls" aria-label="操作">
-        <button id="micButton" class="icon-button" type="button" aria-label="マイク">
+        <button id="flipButton" class="icon-button active" type="button" aria-label="上下反転">
           <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/>
-            <path d="M19 11a7 7 0 0 1-14 0"/>
-            <path d="M12 18v4"/>
-            <path d="M8 22h8"/>
+            <path d="M7 7h10"/>
+            <path d="M12 3v8"/>
+            <path d="M8 7l4 4 4-4"/>
+            <path d="M17 17H7"/>
+            <path d="M12 21v-8"/>
+            <path d="M16 17l-4-4-4 4"/>
           </svg>
         </button>
         <button id="clearButton" class="icon-button" type="button" aria-label="リセット">
@@ -41,7 +43,7 @@
         </label>
       </section>
 
-      <p id="speechStatus" class="status">マイクボタンでキーボードを開きます</p>
+      <p id="speechStatus" class="status">上下反転中</p>
     </main>
 
     <script src="app.js"></script>
