@@ -24,7 +24,7 @@ button, textarea, input { font: inherit; }
 .app {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto 1fr;
   gap: 16px;
   padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
 }
@@ -36,12 +36,7 @@ button, textarea, input { font: inherit; }
   gap: 16px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 28px;
-  letter-spacing: 0;
-}
-
+h1 { margin: 0; font-size: 28px; letter-spacing: 0; }
 p { margin: 4px 0 0; color: var(--muted); }
 
 .actions, .toolbar {
@@ -61,21 +56,49 @@ button {
   cursor: pointer;
 }
 
-#installButton {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
+#micButton, #installButton {
+  background: var(--accent);
+  border-color: var(--accent);
   color: white;
+}
+
+#micButton.listening {
+  background: var(--warn);
+  border-color: var(--warn);
+}
+
+.install-hint, .qr-panel {
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #172554;
+  padding: 12px 14px;
 }
 
 .install-hint {
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid #bfdbfe;
+}
+
+.qr-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.qr-panel a {
+  color: #0f4a8a;
+  overflow-wrap: anywhere;
+}
+
+.qr-panel img {
+  width: 150px;
+  height: 150px;
+  border: 8px solid white;
   border-radius: 8px;
-  background: #eff6ff;
-  color: #172554;
-  padding: 12px 14px;
+  background: white;
 }
 
 .composer { display: grid; gap: 10px; }
@@ -94,7 +117,6 @@ textarea {
 }
 
 .toolbar { justify-content: space-between; }
-
 .phrase { min-height: 42px; padding: 0 12px; }
 
 label {
@@ -105,10 +127,7 @@ label {
   white-space: nowrap;
 }
 
-input[type="range"] {
-  width: 160px;
-  accent-color: var(--accent);
-}
+input[type="range"] { width: 160px; accent-color: var(--accent); }
 
 .display {
   min-height: 260px;
@@ -164,6 +183,8 @@ input[type="range"] {
   .topbar { align-items: stretch; flex-direction: column; }
   .actions { display: grid; grid-template-columns: repeat(2, 1fr); }
   .actions button { padding: 0 8px; }
+  .qr-panel { grid-template-columns: 1fr; }
+  .qr-panel img { width: 220px; height: 220px; justify-self: center; }
   textarea { min-height: 190px; font-size: 22px; }
   .toolbar { align-items: stretch; }
   .phrase { flex: 1 1 45%; }
