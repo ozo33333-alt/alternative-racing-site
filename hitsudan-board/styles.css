@@ -55,6 +55,8 @@ textarea,
   text-align: left;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 textarea {
@@ -65,16 +67,15 @@ textarea {
   position: absolute;
   inset: 0;
   display: none;
-  overflow: hidden;
-  text-align: left;
   transform: rotate(180deg);
   transform-origin: center;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .app.flipped textarea {
   color: transparent;
   caret-color: transparent;
+  pointer-events: none;
 }
 
 .app.flipped textarea::placeholder {
