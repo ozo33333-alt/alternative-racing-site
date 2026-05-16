@@ -40,8 +40,10 @@ clearButton.addEventListener("click", () => {
 });
 
 if (isIos()) {
-  speechStatus.textContent = "iPhoneは入力欄を押して、キーボードのマイクを使ってください";
-  micButton.addEventListener("click", () => input.focus());
+  speechStatus.textContent = "iPhone Safariはキーボードなしの音声認識に未対応です";
+  micButton.addEventListener("click", () => {
+    speechStatus.textContent = "iPhoneではマイクボタン単体で文字起こしできません。キーボードのマイクか、ネイティブアプリ化が必要です。";
+  });
 } else if (SpeechRecognition) {
   recognition = new SpeechRecognition();
   recognition.lang = "ja-JP";
@@ -84,8 +86,10 @@ if (isIos()) {
     }
   });
 } else {
-  speechStatus.textContent = "このブラウザはマイクボタンに未対応です。入力欄の音声入力を使ってください。";
-  micButton.addEventListener("click", () => input.focus());
+  speechStatus.textContent = "このブラウザはマイクボタンに未対応です。";
+  micButton.addEventListener("click", () => {
+    speechStatus.textContent = "このブラウザではキーボードなしの音声入力は使えません。";
+  });
 }
 
 if ("serviceWorker" in navigator) {
