@@ -34,6 +34,7 @@ button, textarea, input { font: inherit; }
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
+  overflow: hidden;
 }
 
 textarea {
@@ -51,6 +52,8 @@ textarea {
   line-height: 1.18;
   text-align: center;
   overflow-wrap: anywhere;
+  transform: rotate(180deg);
+  transform-origin: center;
 }
 
 textarea:focus { outline: none; }
@@ -110,8 +113,16 @@ input[type="range"] {
 }
 
 @media (max-width: 720px) {
-  .app { gap: 10px; }
-  textarea { min-height: 55vh; padding: 18px; }
+  .app {
+    gap: 10px;
+    grid-template-rows: minmax(58vh, 1fr) auto auto;
+  }
+
+  textarea {
+    min-height: 58vh;
+    padding: 18px;
+  }
+
   .controls { grid-template-columns: 1fr 1fr; }
   label { grid-column: 1 / -1; }
 }
