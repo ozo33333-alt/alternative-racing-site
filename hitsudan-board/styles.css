@@ -54,8 +54,11 @@ textarea {
   text-align: center;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  transform: rotate(180deg);
   transform-origin: center;
+}
+
+.app.flipped textarea {
+  transform: rotate(180deg);
 }
 
 textarea:focus { outline: none; }
@@ -97,7 +100,7 @@ button {
   stroke-linejoin: round;
 }
 
-#micButton {
+#flipButton.active {
   background: var(--accent);
   border-color: var(--accent);
   color: white;
