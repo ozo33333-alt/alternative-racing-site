@@ -5,8 +5,7 @@
   --panel: #ffffff;
   --line: #d7d1c4;
   --accent: #0f766e;
-  --warn: #b45309;
-  --text-size: 76px;
+  --text-size: 104px;
 }
 
 * { box-sizing: border-box; }
@@ -42,7 +41,7 @@ button, input, textarea { font: inherit; }
 textarea {
   width: 100%;
   height: 100%;
-  min-height: 64svh;
+  min-height: 66svh;
   resize: none;
   border: 0;
   border-radius: 8px;
@@ -51,7 +50,7 @@ textarea {
   padding: 18px;
   font-size: var(--text-size);
   font-weight: 900;
-  line-height: 1.12;
+  line-height: 1.08;
   text-align: center;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -70,7 +69,7 @@ textarea::placeholder { color: #777; }
 }
 
 button {
-  min-height: 58px;
+  min-height: 64px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
@@ -84,13 +83,13 @@ button {
 .icon-button {
   display: grid;
   place-items: center;
-  min-height: 64px;
+  min-height: 68px;
   padding: 0;
 }
 
 .icon-button svg {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2.4;
@@ -102,11 +101,6 @@ button {
   background: var(--accent);
   border-color: var(--accent);
   color: white;
-}
-
-#micButton.listening {
-  background: var(--warn);
-  border-color: var(--warn);
 }
 
 label {
@@ -122,6 +116,7 @@ label {
 
 input[type="range"] {
   width: 100%;
+  height: 36px;
   accent-color: var(--accent);
 }
 
