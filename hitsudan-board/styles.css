@@ -86,6 +86,20 @@ textarea {
   display: block;
 }
 
+.app.flipped.editing textarea {
+  color: var(--ink);
+  caret-color: auto;
+  pointer-events: auto;
+}
+
+.app.flipped.editing textarea::placeholder {
+  color: #777;
+}
+
+.app.flipped.editing .mirror-text {
+  display: none;
+}
+
 .mirror-text.empty { color: #777; }
 
 textarea:focus { outline: none; }
