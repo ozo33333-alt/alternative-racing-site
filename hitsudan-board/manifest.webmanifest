@@ -1,7 +1,8 @@
 {
+  "id": "/alternative-racing-site/hitsudan-board/",
   "name": "筆談ボード",
   "short_name": "筆談",
-  "description": "耳の聞こえない人との会話に使える筆談ボード",
+  "description": "文字と音声入力で会話するシンプルな筆談ボード",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
