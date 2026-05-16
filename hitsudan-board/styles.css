@@ -58,6 +58,7 @@ textarea {
 }
 
 .app.flipped textarea {
+  text-align: right;
   transform: rotate(180deg);
 }
 
