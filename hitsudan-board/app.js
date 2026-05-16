@@ -1,17 +1,14 @@
-const input = document.querySelector("#messageInput");
+const displayText = document.querySelector("#displayText");
 const speechStatus = document.querySelector("#speechStatus");
 const micButton = document.querySelector("#micButton");
 const clearButton = document.querySelector("#clearButton");
 const fontRange = document.querySelector("#fontRange");
 
-const defaultPlaceholder = "ここに表示";
+const defaultText = "ここに表示";
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognition;
 let listening = false;
-
-function isIos() {
-  return /iphone|ipad|ipod/i.test(navigator.userAgent);
-}
+let committedText = "";
 
 function setListening(active) {
   listening = active;
@@ -20,11 +17,16 @@ function setListening(active) {
   speechStatus.textContent = active ? "音声入力中" : "音声入力は停止中";
 }
 
+function render(text) {
+  displayText.textContent = text.trim() || defaultText;
+  displayText.classList.toggle("empty", !text.trim());
+}
+
 function appendText(text) {
-  input.placeholder = defaultPlaceholder;
-  const spacer = input.value.trim() ? "\n" : "";
-  input.value = `${input.value}${spacer}${text}`;
-  input.focus();
+  const trimmed = text.trim();
+  if (!trimmed) return;
+  committedText = committedText ? `${committedText}\n${trimmed}` : trimmed;
+  render(committedText);
 }
 
 fontRange.addEventListener("input", () => {
@@ -33,18 +35,12 @@ fontRange.addEventListener("input", () => {
 
 clearButton.addEventListener("click", () => {
   if (recognition && listening) recognition.stop();
-  input.value = "";
-  input.placeholder = defaultPlaceholder;
+  committedText = "";
+  render("");
   setListening(false);
-  input.focus();
 });
 
-if (isIos()) {
-  speechStatus.textContent = "iPhone Safariはキーボードなしの音声認識に未対応です";
-  micButton.addEventListener("click", () => {
-    speechStatus.textContent = "iPhoneではマイクボタン単体で文字起こしできません。キーボードのマイクか、ネイティブアプリ化が必要です。";
-  });
-} else if (SpeechRecognition) {
+if (SpeechRecognition) {
   recognition = new SpeechRecognition();
   recognition.lang = "ja-JP";
   recognition.continuous = true;
@@ -60,8 +56,8 @@ if (isIos()) {
       else interimText += result[0].transcript;
     }
 
-    if (finalText) appendText(finalText.trim());
-    else if (interimText) input.placeholder = interimText.trim();
+    if (finalText) appendText(finalText);
+    else if (interimText) render(committedText ? `${committedText}\n${interimText}` : interimText);
   });
 
   recognition.addEventListener("end", () => setListening(false));
@@ -78,7 +74,6 @@ if (isIos()) {
     }
 
     try {
-      input.placeholder = defaultPlaceholder;
       recognition.start();
       setListening(true);
     } catch {
@@ -86,10 +81,10 @@ if (isIos()) {
     }
   });
 } else {
-  speechStatus.textContent = "このブラウザはマイクボタンに未対応です。";
   micButton.addEventListener("click", () => {
-    speechStatus.textContent = "このブラウザではキーボードなしの音声入力は使えません。";
+    speechStatus.textContent = "このChromeでは音声認識が使えません";
   });
+  speechStatus.textContent = "このChromeでは音声認識が使えません";
 }
 
 if ("serviceWorker" in navigator) {
@@ -97,3 +92,5 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./service-worker.js").catch(() => {});
   });
 }
+
+render("");
