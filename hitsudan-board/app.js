@@ -4,6 +4,7 @@ const micButton = document.querySelector("#micButton");
 const clearButton = document.querySelector("#clearButton");
 const fontRange = document.querySelector("#fontRange");
 
+const defaultPlaceholder = "ここに表示";
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognition;
 let listening = false;
@@ -20,6 +21,7 @@ function setListening(active) {
 }
 
 function appendText(text) {
+  input.placeholder = defaultPlaceholder;
   const spacer = input.value.trim() ? "\n" : "";
   input.value = `${input.value}${spacer}${text}`;
   input.focus();
@@ -30,7 +32,10 @@ fontRange.addEventListener("input", () => {
 });
 
 clearButton.addEventListener("click", () => {
+  if (recognition && listening) recognition.stop();
   input.value = "";
+  input.placeholder = defaultPlaceholder;
+  setListening(false);
   input.focus();
 });
 
@@ -71,6 +76,7 @@ if (isIos()) {
     }
 
     try {
+      input.placeholder = defaultPlaceholder;
       recognition.start();
       setListening(true);
     } catch {
