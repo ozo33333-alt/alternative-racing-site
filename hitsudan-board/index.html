@@ -16,10 +16,11 @@
       <section class="topbar" aria-label="操作">
         <div>
           <h1>筆談ボード</h1>
-          <p id="speechStatus">入力欄を押して、iPhoneキーボードのマイクを使えます</p>
+          <p id="speechStatus">音声入力は停止中</p>
         </div>
         <div class="actions">
           <button id="installButton" type="button" hidden>インストール</button>
+          <button id="micButton" type="button">音声入力</button>
           <button id="showButton" type="button">見せる</button>
           <button id="clearButton" type="button">消す</button>
         </div>
@@ -27,7 +28,16 @@
 
       <section id="installHint" class="install-hint">
         <strong>iPhoneに入れる</strong>
-        <span>Safariで共有ボタンを押して「ホーム画面に追加」を選んでください。</span>
+        <span>Safariで開いて、共有ボタンから「ホーム画面に追加」を選んでください。音声は入力欄を押してキーボードのマイクを使います。</span>
+      </section>
+
+      <section class="qr-panel" aria-label="iPhone用QRコード">
+        <div>
+          <strong>iPhoneで開くQRコード</strong>
+          <p>iPhoneのカメラで読み取ってください。</p>
+          <a href="https://ozo33333-alt.github.io/alternative-racing-site/hitsudan-board/">https://ozo33333-alt.github.io/alternative-racing-site/hitsudan-board/</a>
+        </div>
+        <img alt="筆談ボードをiPhoneで開くQRコード" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=12&data=https%3A%2F%2Fozo33333-alt.github.io%2Falternative-racing-site%2Fhitsudan-board%2F">
       </section>
 
       <section class="composer" aria-label="会話入力">
