@@ -2,6 +2,8 @@ const input = document.querySelector("#messageInput");
 const displayText = document.querySelector("#displayText");
 const presenter = document.querySelector("#presenter");
 const presenterText = document.querySelector("#presenterText");
+const speechStatus = document.querySelector("#speechStatus");
+const micButton = document.querySelector("#micButton");
 const showButton = document.querySelector("#showButton");
 const clearButton = document.querySelector("#clearButton");
 const closePresenter = document.querySelector("#closePresenter");
@@ -9,7 +11,14 @@ const fontRange = document.querySelector("#fontRange");
 const phraseButtons = document.querySelectorAll(".phrase");
 const installButton = document.querySelector("#installButton");
 
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition;
+let listening = false;
 let deferredInstallPrompt;
+
+function isIos() {
+  return /iphone|ipad|ipod/i.test(navigator.userAgent);
+}
 
 function currentMessage() {
   return input.value.trim() || "ここに大きく表示されます";
@@ -67,6 +76,65 @@ document.addEventListener("keydown", (event) => {
     presenter.hidden = true;
   }
 });
+
+function setListening(active) {
+  listening = active;
+  micButton.classList.toggle("listening", active);
+  micButton.textContent = active ? "停止" : "音声入力";
+  speechStatus.textContent = active ? "音声入力中" : "音声入力は停止中";
+}
+
+if (isIos()) {
+  speechStatus.textContent = "iPhoneでは入力欄を押して、キーボードのマイクを使ってください";
+  micButton.addEventListener("click", () => input.focus());
+} else if (SpeechRecognition) {
+  recognition = new SpeechRecognition();
+  recognition.lang = "ja-JP";
+  recognition.continuous = true;
+  recognition.interimResults = true;
+
+  recognition.addEventListener("result", (event) => {
+    let finalText = "";
+    let interimText = "";
+
+    for (let index = event.resultIndex; index < event.results.length; index += 1) {
+      const result = event.results[index];
+      if (result.isFinal) finalText += result[0].transcript;
+      else interimText += result[0].transcript;
+    }
+
+    if (finalText) appendText(finalText.trim());
+    else if (interimText) {
+      displayText.textContent = interimText.trim();
+      presenterText.textContent = interimText.trim();
+    }
+  });
+
+  recognition.addEventListener("end", () => setListening(false));
+
+  recognition.addEventListener("error", (event) => {
+    setListening(false);
+    speechStatus.textContent = `音声入力エラー: ${event.error}`;
+  });
+
+  micButton.addEventListener("click", () => {
+    if (listening) {
+      recognition.stop();
+      setListening(false);
+      return;
+    }
+
+    try {
+      recognition.start();
+      setListening(true);
+    } catch {
+      setListening(false);
+    }
+  });
+} else {
+  micButton.addEventListener("click", () => input.focus());
+  speechStatus.textContent = "このブラウザは音声入力ボタンに未対応です。入力欄の音声入力を使ってください。";
+}
 
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
