@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ALTERNATIVE RACING - A performance and streetwear label built around Threefold Karma."
+      content="ALTERNATIVE RACING / WAnoMono - KEIRIN, Zen, movement, and Japanese racing culture."
     />
-    <title>ALTERNATIVE RACING</title>
+    <title>ALTERNATIVE RACING / WAnoMono</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@500;700;900&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
         color-scheme: dark;
-        --bg: #030303;
-        --panel: rgba(8, 8, 8, 0.76);
-        --panel-strong: rgba(12, 12, 12, 0.94);
-        --fg: #f4f1ed;
-        --muted: #a8a29b;
-        --soft: rgba(244, 241, 237, 0.72);
-        --line: rgba(244, 241, 237, 0.16);
-        --accent: #c80021;
-        --accent-soft: rgba(200, 0, 33, 0.2);
+        --bg: #020202;
+        --ink: #f4f1ec;
+        --muted: #aaa39a;
+        --dim: rgba(244, 241, 236, 0.62);
+        --line: rgba(244, 241, 236, 0.16);
+        --line-strong: rgba(244, 241, 236, 0.32);
+        --panel: rgba(7, 7, 7, 0.68);
+        --red: #d90024;
+        --deep-red: rgba(217, 0, 36, 0.2);
       }
 
       * {
@@ -38,172 +38,417 @@
 
       body {
         margin: 0;
-        min-height: 100vh;
         overflow-x: hidden;
-        background:
-          radial-gradient(circle at 78% 18%, rgba(200, 0, 33, 0.14), transparent 31rem),
-          linear-gradient(130deg, rgba(255, 255, 255, 0.055), transparent 34%),
-          var(--bg);
-        color: var(--fg);
+        background: var(--bg);
+        color: var(--ink);
         font-family: Inter, "Helvetica Neue", Arial, sans-serif;
       }
 
       body::before {
         position: fixed;
         inset: 0;
-        z-index: -1;
+        z-index: -3;
         pointer-events: none;
         content: "";
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
-        background-size: 82px 82px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 82%);
-      }
-
-      .page {
-        padding: 0;
-      }
-
-      .cover {
-        position: relative;
-        display: grid;
-        overflow: hidden;
         background:
-          linear-gradient(180deg, rgba(3, 3, 3, 0.45), rgba(3, 3, 3, 0.8)),
-          var(--panel);
-        isolation: isolate;
+          radial-gradient(circle at 74% 12%, rgba(217, 0, 36, 0.11), transparent 30rem),
+          radial-gradient(circle at 14% 70%, rgba(255, 255, 255, 0.055), transparent 26rem),
+          linear-gradient(180deg, #050505 0%, #020202 52%, #080808 100%);
       }
 
-      .cover::before {
-        position: absolute;
-        top: 18vh;
-        right: clamp(-40px, 4vw, 90px);
-        z-index: -1;
-        width: clamp(680px, 72vw, 1220px);
-        aspect-ratio: 1;
+      body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
         content: "";
-        background: url("logo.png") center / contain no-repeat;
-        opacity: 0.17;
-        transform: rotate(-8deg);
-        filter: grayscale(1);
+        opacity: 0.38;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 96px 96px;
+        mask-image: linear-gradient(to bottom, black, transparent 82%);
       }
 
-      .hero-wrap {
-        display: grid;
-        min-height: 100vh;
-        padding: clamp(24px, 4.5vw, 72px);
+      a {
+        color: inherit;
       }
 
-      .nav {
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        align-self: start;
         gap: 24px;
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
+        padding: 18px clamp(18px, 4vw, 58px);
+        color: var(--ink);
+        mix-blend-mode: difference;
       }
 
-      .mark {
+      .brand-mark {
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        color: var(--fg);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-decoration: none;
+        text-transform: uppercase;
       }
 
-      .mark::before {
-        display: inline-block;
+      .brand-mark::before {
         width: 8px;
         height: 8px;
         content: "";
-        background: var(--accent);
+        background: var(--red);
       }
 
-      .season {
-        text-align: right;
+      .site-nav {
+        display: flex;
+        gap: clamp(14px, 2.6vw, 32px);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .site-nav a {
+        color: var(--ink);
+        text-decoration: none;
+        opacity: 0.78;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible {
+        opacity: 1;
+        outline: none;
       }
 
       .hero {
-        display: grid;
-        align-self: end;
-        width: 100%;
-        max-width: 1760px;
-        margin-block: clamp(62px, 10vh, 128px) 0;
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+        isolation: isolate;
       }
 
-      h1 {
-        margin: 0;
+      .hero-film {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.52) 42%, rgba(0, 0, 0, 0.92)),
+          radial-gradient(circle at 70% 35%, rgba(217, 0, 36, 0.18), transparent 22rem),
+          #030303;
+      }
+
+      .hero-film::before {
+        position: absolute;
+        top: 7%;
+        right: clamp(-160px, 4vw, 120px);
+        width: clamp(620px, 58vw, 1120px);
+        aspect-ratio: 1;
+        content: "";
+        background: url("logo.png") center / contain no-repeat;
+        opacity: 0.2;
+        transform: rotate(-8deg);
+        animation: breathe 9s ease-in-out infinite;
+      }
+
+      .hero-film::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.2), #020202 98%),
+          repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px,
+            transparent 7px
+          );
+        opacity: 0.45;
+      }
+
+      @keyframes breathe {
+        0%,
+        100% {
+          opacity: 0.16;
+          transform: rotate(-8deg) scale(0.98);
+        }
+
+        50% {
+          opacity: 0.26;
+          transform: rotate(-8deg) scale(1.04);
+        }
+      }
+
+      .hero-inner {
+        display: grid;
+        align-content: end;
+        min-height: 100svh;
+        padding: clamp(96px, 12vh, 150px) clamp(18px, 4vw, 58px) clamp(34px, 7vh, 72px);
+      }
+
+      .hero-kicker {
+        margin: 0 0 22px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
         max-width: 11ch;
-        font-size: clamp(4.5rem, 16vw, 14rem);
-        font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        font-size: clamp(4.8rem, 15.7vw, 15rem);
         font-weight: 800;
         line-height: 0.78;
         letter-spacing: -0.105em;
         text-transform: uppercase;
       }
 
-      .title-mobile {
-        display: none;
-      }
-
-      .title-line {
+      .hero-title span {
         display: block;
         white-space: nowrap;
       }
 
-      .subcopy {
+      .hero-copy {
         position: relative;
-        max-width: 720px;
-        margin: clamp(32px, 5vw, 56px) 0 0;
-        padding-left: clamp(18px, 3vw, 34px);
-        color: var(--fg);
-        font-size: clamp(1.2rem, 2.3vw, 2.25rem);
-        font-weight: 600;
+        max-width: 820px;
+        margin: clamp(28px, 5vw, 54px) 0 0;
+        padding-left: clamp(18px, 2.4vw, 34px);
+        color: var(--ink);
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1.3rem, 2.45vw, 2.65rem);
+        font-weight: 900;
         line-height: 1.55;
+      }
+
+      .hero-copy::before {
+        position: absolute;
+        top: 0.15em;
+        bottom: 0.12em;
+        left: 0;
+        width: 3px;
+        content: "";
+        background: var(--red);
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 32px;
+        gap: 12px;
+        margin-top: 34px;
       }
 
-      .shop-band {
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border: 1px solid var(--line-strong);
+        padding: 13px 18px;
+        color: var(--ink);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-decoration: none;
+        text-transform: uppercase;
+        background: rgba(0, 0, 0, 0.22);
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        border-color: var(--red);
+        background: var(--deep-red);
+        outline: none;
+      }
+
+      .section {
+        padding: clamp(52px, 8vw, 122px) clamp(18px, 4vw, 58px);
+        border-top: 1px solid var(--line);
+      }
+
+      .section-head {
         display: grid;
-        gap: clamp(22px, 4vw, 44px);
-        background: #050505;
-      }
-
-      .shop-head {
-        display: flex;
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1fr);
         align-items: end;
-        justify-content: space-between;
-        gap: 22px;
+        gap: clamp(28px, 6vw, 92px);
+        margin-bottom: clamp(28px, 5vw, 68px);
       }
 
-      .shop-head h2 {
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .section-title {
         margin: 0;
-        font-size: clamp(2.6rem, 6.8vw, 7.2rem);
+        font-size: clamp(2.6rem, 7vw, 8rem);
         font-weight: 800;
-        line-height: 0.88;
+        line-height: 0.9;
         letter-spacing: -0.08em;
         text-transform: uppercase;
       }
 
-      .shop-head p {
-        max-width: 440px;
+      .lead {
+        max-width: 620px;
         margin: 0;
-        color: var(--soft);
-        font-size: 1rem;
+        color: var(--dim);
+        font-size: clamp(1rem, 1.45vw, 1.2rem);
+        line-height: 1.9;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .product {
+        display: grid;
+        min-width: 0;
+        background: #070707;
+      }
+
+      .product-media {
+        display: grid;
+        min-height: clamp(340px, 42vw, 620px);
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at center, rgba(217, 0, 36, 0.12), transparent 43%),
+          #030303;
+      }
+
+      .product-media img {
+        width: min(94%, 620px);
+        max-height: 92%;
+        object-fit: contain;
+        filter: drop-shadow(0 34px 42px rgba(0, 0, 0, 0.58));
+      }
+
+      .product-copy {
+        display: grid;
+        gap: 12px;
+        padding: clamp(20px, 3vw, 30px);
+      }
+
+      .product-copy h3 {
+        margin: 0;
+        font-size: clamp(1.3rem, 2vw, 1.9rem);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .product-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .meta-row span {
+        border: 1px solid var(--line);
+        padding: 7px 9px;
+        color: var(--dim);
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .world {
+        position: relative;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(2, 2, 2, 0.94), rgba(2, 2, 2, 0.52)),
+          #050505;
+        isolation: isolate;
+      }
+
+      .world::before {
+        position: absolute;
+        top: 50%;
+        right: -12vw;
+        z-index: -1;
+        width: min(76vw, 980px);
+        aspect-ratio: 1;
+        content: "";
+        background: url("logo.png") center / contain no-repeat;
+        opacity: 0.14;
+        transform: translateY(-50%) rotate(-8deg);
+      }
+
+      .world-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1.2fr);
+        gap: clamp(28px, 6vw, 92px);
+      }
+
+      .world-statement {
+        max-width: 760px;
+        margin: 0;
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1.35rem, 3vw, 3.3rem);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .world-list {
+        display: grid;
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .world-item {
+        display: grid;
+        grid-template-columns: 10ch minmax(0, 1fr);
+        gap: 18px;
+        padding: clamp(18px, 3vw, 28px);
+        background: rgba(0, 0, 0, 0.56);
+      }
+
+      .world-item b {
+        color: var(--ink);
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .world-item span {
+        color: var(--dim);
         line-height: 1.75;
       }
 
-      .shop-grid {
+      .journal-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1px;
@@ -211,856 +456,259 @@
         border: 1px solid var(--line);
       }
 
-      .shop-card {
+      .journal-card {
         display: grid;
-        grid-template-rows: minmax(260px, 36vw) auto;
-        min-width: 0;
-        color: var(--fg);
-        background: #080808;
+        gap: 28px;
+        min-height: 320px;
+        padding: clamp(20px, 3vw, 32px);
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+          #070707;
         text-decoration: none;
       }
 
-      .shop-card-media {
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 50% 45%, rgba(200, 0, 33, 0.1), transparent 45%),
-          #050505;
-      }
-
-      .shop-card-media img {
-        width: min(96%, 560px);
-        max-height: 92%;
-        object-fit: contain;
-        filter: drop-shadow(0 32px 44px rgba(0, 0, 0, 0.55));
-        transition: transform 220ms ease;
-      }
-
-      .shop-card:hover .shop-card-media img,
-      .shop-card:focus-visible .shop-card-media img {
-        transform: scale(1.04);
-      }
-
-      .shop-card-copy {
-        display: grid;
-        gap: 10px;
-        padding: 22px;
-      }
-
-      .shop-card-copy h3 {
-        margin: 0;
-        font-size: clamp(1.2rem, 2vw, 1.65rem);
-        line-height: 1;
-        text-transform: uppercase;
-      }
-
-      .shop-card-copy p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.9rem;
+      .journal-card h3 {
+        margin: auto 0 0;
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1.25rem, 2vw, 1.85rem);
         line-height: 1.55;
       }
 
-      .subcopy::before {
-        position: absolute;
-        top: 0.18em;
-        bottom: 0.1em;
-        left: 0;
-        width: 3px;
-        content: "";
-        background: var(--accent);
+      .journal-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
       }
 
-      .section {
-        padding: clamp(30px, 5vw, 72px);
+      .site-footer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 28px;
+        padding: 34px clamp(18px, 4vw, 58px);
         border-top: 1px solid var(--line);
-      }
-
-      .section-kicker {
-        margin: 0 0 16px;
         color: var(--muted);
-        font-size: 0.72rem;
+        font-size: 0.76rem;
         font-weight: 800;
-        letter-spacing: 0.24em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
       }
 
-      .philosophy {
-        display: grid;
-        grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1.18fr);
-        gap: clamp(26px, 6vw, 86px);
-        background: rgba(3, 3, 3, 0.08);
-      }
-
-      .philosophy h2,
-      .category-title {
-        margin: 0;
-        font-size: clamp(2.25rem, 6vw, 5.6rem);
-        font-weight: 800;
-        line-height: 0.95;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      .philosophy-copy {
-        display: grid;
-        gap: 18px;
-        color: var(--soft);
-        font-size: clamp(1rem, 1.4vw, 1.12rem);
-        line-height: 1.85;
-      }
-
-      .philosophy-copy p {
-        margin: 0;
-      }
-
-      .category-tabs {
-        display: grid;
-      }
-
-      .category-input {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        white-space: nowrap;
-      }
-
-      .categories {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        border-top: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .category {
-        position: relative;
-        display: grid;
-        min-height: clamp(172px, 20vw, 248px);
-        padding: clamp(22px, 3vw, 34px) clamp(18px, 3vw, 32px);
-        overflow: hidden;
-        border-right: 1px solid var(--line);
-        color: var(--fg);
-        cursor: pointer;
-        isolation: isolate;
-        transition: background 180ms ease, transform 180ms ease;
-      }
-
-      .category:last-child {
-        border-right: 0;
-      }
-
-      .category::before {
-        position: absolute;
-        inset: 0;
-        z-index: -2;
-        content: "";
-        background:
-          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.86)),
-          var(--category-image) center 28% / min(70%, 190px) auto no-repeat;
-        opacity: 0.76;
-        transform: scale(1.02);
-        transition: opacity 180ms ease, transform 180ms ease;
-      }
-
-      .category::after {
-        position: absolute;
-        left: clamp(18px, 3vw, 32px);
-        bottom: clamp(18px, 3vw, 28px);
-        width: 36px;
-        height: 2px;
-        content: "";
-        background: var(--accent);
-        transform: scaleX(0.58);
-        transform-origin: left;
-        transition: transform 180ms ease;
-      }
-
-      .category-kicker {
-        color: var(--muted);
-        font-size: 0.66rem;
-        font-weight: 800;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-      }
-
-      .category-name {
-        align-self: end;
-        margin-bottom: 18px;
-        font-size: clamp(1.05rem, 2vw, 1.55rem);
-        font-weight: 700;
-      }
-
-      .category:hover,
-      .category:focus-visible {
-        background: var(--accent-soft);
-        outline: none;
-        transform: translateY(-3px);
-      }
-
-      .category:hover::before,
-      .category:focus-visible::before {
-        opacity: 0.92;
-        transform: scale(1.07);
-      }
-
-      .category:hover::after,
-      .category:focus-visible::after {
-        transform: scaleX(1);
-      }
-
-      #tab-jerseys:checked ~ .categories label[for="tab-jerseys"],
-      #tab-base-layers:checked ~ .categories label[for="tab-base-layers"],
-      #tab-street-line:checked ~ .categories label[for="tab-street-line"] {
-        background: rgba(200, 0, 33, 0.12);
-      }
-
-      #tab-jerseys:checked ~ .categories label[for="tab-jerseys"]::after,
-      #tab-base-layers:checked ~ .categories label[for="tab-base-layers"]::after,
-      #tab-street-line:checked ~ .categories label[for="tab-street-line"]::after {
-        transform: scaleX(1);
-      }
-
-      .details {
-        display: grid;
-      }
-
-      .detail-panel {
-        display: none;
-        grid-template-columns: minmax(0, 0.88fr) minmax(300px, 1.12fr);
-        align-items: start;
-        gap: clamp(28px, 6vw, 86px);
-        padding: clamp(24px, 5vw, 64px);
-        border-bottom: 1px solid var(--line);
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 42%),
-          var(--panel-strong);
-      }
-
-      #tab-jerseys:checked ~ .details #detail-jerseys,
-      #tab-base-layers:checked ~ .details #detail-base-layers,
-      #tab-street-line:checked ~ .details #detail-street-line {
-        display: grid;
-      }
-
-      .detail-copy {
-        max-width: 560px;
-      }
-
-      .detail-copy p {
-        margin: clamp(22px, 4vw, 34px) 0 0;
-        color: var(--soft);
-        font-size: clamp(1rem, 1.7vw, 1.18rem);
-        line-height: 1.75;
-      }
-
-      .detail-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 28px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .detail-meta li {
-        border: 1px solid var(--line);
-        padding: 9px 12px;
-        color: var(--soft);
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-      }
-
-      .product-list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 30px;
-      }
-
-      .product-card {
-        display: grid;
-        grid-template-columns: 74px minmax(0, 1fr);
-        align-items: center;
-        gap: 14px;
-        min-height: 112px;
-        border: 1px solid var(--line);
-        padding: 12px;
-        background: rgba(255, 255, 255, 0.03);
-        color: inherit;
-        cursor: pointer;
-        text-align: left;
-        transition: border-color 180ms ease, background 180ms ease;
-      }
-
-      .product-card:hover,
-      .product-card:focus-visible,
-      .product-card.is-active {
-        border-color: var(--accent);
-        background: rgba(200, 0, 33, 0.12);
-        outline: none;
-      }
-
-      .product-thumb {
-        width: 74px;
-        height: 88px;
-        object-fit: contain;
-        background: #050505;
-      }
-
-      .product-card h3 {
-        margin: 0 0 7px;
-        color: var(--fg);
-        font-size: 0.9rem;
-        line-height: 1.25;
-      }
-
-      .product-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.78rem;
-        line-height: 1.55;
-      }
-
-      .cta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 30px;
-      }
-
-      .cta-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 44px;
-        border: 1px solid var(--line);
-        padding: 12px 16px;
-        color: var(--fg);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: background 180ms ease, border-color 180ms ease;
-      }
-
-      .cta-link:hover,
-      .cta-link:focus-visible {
-        border-color: var(--accent);
-        background: var(--accent-soft);
-        outline: none;
-      }
-
-      .product-frame {
-        position: sticky;
-        top: 24px;
-        display: grid;
-        min-height: clamp(360px, 58vw, 660px);
-        place-items: center;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        background:
-          radial-gradient(circle, rgba(200, 0, 33, 0.12), transparent 45%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
-      }
-
-      .product-frame::before {
-        position: absolute;
-        inset: 16px;
-        content: "";
-        border: 1px solid rgba(244, 241, 237, 0.08);
-      }
-
-      .product-image {
-        width: min(95%, 640px);
-        max-height: 88%;
-        object-fit: contain;
-        filter: drop-shadow(0 42px 48px rgba(0, 0, 0, 0.55));
-      }
-
-      .product-image.design-sheet {
-        width: min(100%, 860px);
-        max-height: 92%;
-      }
-
-      @media (max-width: 960px) {
-        .philosophy,
-        .detail-panel {
+      @media (max-width: 980px) {
+        .section-head,
+        .world-grid {
           grid-template-columns: 1fr;
         }
 
-        .product-frame {
-          position: relative;
-          top: auto;
-        }
-      }
-
-      @media (max-width: 760px) {
-        .page {
-          padding: 16px;
+        .product-grid,
+        .journal-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .hero-wrap,
-        .section,
-        .detail-panel {
-          padding: 22px;
-        }
-
-        .hero-wrap {
-          min-height: auto;
-        }
-
-        .cover::before {
-          top: 92px;
-          right: -165px;
-          width: 560px;
-          opacity: 0.14;
-          transform: rotate(-8deg);
-        }
-
-        .nav {
-          align-items: flex-start;
-          font-size: 0.66rem;
-        }
-
-        .season {
-          max-width: 13ch;
-        }
-
-        .hero {
-          margin-block: 70px 34px;
-        }
-
-        h1 {
-          max-width: 11ch;
-          font-size: clamp(4.1rem, 22vw, 7.2rem);
-          line-height: 0.82;
-        }
-
-        .title-desktop {
+        .site-nav {
           display: none;
         }
+      }
 
-        .title-mobile {
-          display: block;
+      @media (max-width: 620px) {
+        .hero-title {
+          font-size: clamp(4rem, 21vw, 6.5rem);
+          line-height: 0.84;
         }
 
-        .subcopy {
-          max-width: 19rem;
-          font-size: 1.05rem;
+        .hero-film::before {
+          top: 16%;
+          right: -42vw;
+          width: 118vw;
         }
 
-        .categories {
-          grid-template-columns: 1fr;
-          border-bottom: 0;
+        .hero-copy {
+          font-size: 1.18rem;
         }
 
-        .category {
-          min-height: 118px;
-          border-right: 0;
-          border-bottom: 1px solid var(--line);
-        }
-
-        .category::before {
-          background-position: right 18px center;
-          background-size: auto 116%;
-        }
-
-        .product-list {
-          grid-template-columns: 1fr;
-        }
-
-        .shop-head {
-          display: grid;
-        }
-
-        .shop-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .shop-card {
-          grid-template-rows: minmax(260px, 82vw) auto;
-        }
-
-        .product-frame {
+        .product-media {
           min-height: 360px;
         }
 
-        .product-image {
-          width: min(94%, 420px);
+        .product-grid,
+        .journal-grid {
+          grid-template-columns: 1fr;
         }
 
-        .product-image.design-sheet {
-          width: 100%;
+        .world-item {
+          grid-template-columns: 1fr;
+        }
+
+        .site-footer {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <main class="page" aria-label="ALTERNATIVE RACING">
-      <section class="cover">
-        <div class="hero-wrap">
-          <header class="nav" aria-label="Brand header">
-            <div class="mark">Alternative Racing</div>
-            <div class="season">Threefold Karma</div>
-          </header>
+    <header class="site-header">
+      <a class="brand-mark" href="#top">Alternative Racing</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#products">Products</a>
+        <a href="#world">World</a>
+        <a href="#journal">Journal</a>
+      </nav>
+    </header>
 
-          <div class="hero">
-            <div>
-              <h1 class="title-desktop">
-                <span class="title-line">ALTERNATIVE</span>
-                <span class="title-line">RACING</span>
-              </h1>
-              <h1 class="title-mobile">
-                <span class="title-line">ALT</span>
-                <span class="title-line">RACING</span>
-              </h1>
-              <p class="subcopy">
-                &#23550;&#25126;&#30456;&#25163;&#12394;&#12393;&#12356;&#12394;&#12356;&#12290;&#25126;&#12387;&#12390;&#12356;&#12427;&#12398;&#12399;&#33258;&#20998;&#33258;&#36523;&#12384;&#12290;
-              </p>
-              <div class="hero-actions" aria-label="Primary actions">
-                <a class="cta-link" href="#shop">Shop collection</a>
-                <a class="cta-link" href="#philosophy">Philosophy</a>
+    <main id="top">
+      <section class="hero" aria-label="ALTERNATIVE RACING hero">
+        <div class="hero-film" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="hero-kicker">KEIRIN / ZEN / WAnoMono</p>
+          <h1 class="hero-title">
+            <span>ALTERNATIVE</span>
+            <span>RACING</span>
+          </h1>
+          <p class="hero-copy">対戦相手などいない。戦っているのは自分自身だ。</p>
+          <div class="hero-actions">
+            <a class="button" href="#products">View products</a>
+            <a class="button" href="#world">Enter world</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="products" aria-label="Products">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Products</p>
+            <h2 class="section-title">Small batch ritual gear</h2>
+          </div>
+          <p class="lead">
+            少数展開、受注生産、黒白赤。販売より先に、競輪と精神性をまとったカルチャーとしての輪郭を作る。
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product">
+            <div class="product-media">
+              <img src="jersey.png" alt="ALTERNATIVE RACING one-piece jersey" />
+            </div>
+            <div class="product-copy">
+              <h3>Race Jersey</h3>
+              <p>バンク、呼吸、極限集中。競技のための黒いユニフォーム。</p>
+              <div class="meta-row">
+                <span>Keirin</span>
+                <span>Made to order</span>
+                <span>Black / White</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <img src="assets/racing-tights.png" alt="ALTERNATIVE RACING long tights design" />
+            </div>
+            <div class="product-copy">
+              <h3>Long Tights</h3>
+              <p>トレーニング、ウォームアップ、レース前の静けさのためのライン。</p>
+              <div class="meta-row">
+                <span>Training</span>
+                <span>Warm up</span>
+                <span>Race line</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <img src="assets/base-layer-design.png" alt="ALTERNATIVE RACING base layer design" />
+            </div>
+            <div class="product-copy">
+              <h3>Base Layer</h3>
+              <p>身体、呼吸、熱。競技前の集中を内側から支えるインナー。</p>
+              <div class="meta-row">
+                <span>Inner</span>
+                <span>Conditioning</span>
+                <span>All season</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <img src="assets/off-bike-design.png" alt="ALTERNATIVE RACING street line design" />
+            </div>
+            <div class="product-copy">
+              <h3>Street Line</h3>
+              <p>オフバイク、都市、ダンス。競技後の日常へ精神性を持ち込む。</p>
+              <div class="meta-row">
+                <span>Dance</span>
+                <span>Off-bike</span>
+                <span>WAnoMono</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section world" id="world" aria-label="WAnoMono world">
+        <div class="world-grid">
+          <div>
+            <p class="eyebrow">World</p>
+            <h2 class="section-title">WAnoMono</h2>
+          </div>
+          <div>
+            <p class="world-statement">
+              仏道そのものではない。競技を通して、無、孤独、修羅、呼吸へ入っていく精神世界。
+            </p>
+            <div class="world-list" aria-label="WAnoMono concepts">
+              <div class="world-item">
+                <b>Hannya</b>
+                <span>内なる恐れ、迷い、弱さを可視化する仮面。敵ではなく、向き合う対象。</span>
+              </div>
+              <div class="world-item">
+                <b>Zenrin</b>
+                <span>禅輪人。ペダル、輪、呼吸、集中。回転の中で雑念を削ぎ落とす。</span>
+              </div>
+              <div class="world-item">
+                <b>Bank</b>
+                <span>競輪場は舞台ではなく、精神の圧力が露出する場所。</span>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <section class="section philosophy" id="philosophy" aria-label="Brand philosophy">
+      <section class="section" id="journal" aria-label="Journal">
+        <div class="section-head">
           <div>
-            <p class="section-kicker">Philosophy</p>
-            <h2>Race Within</h2>
+            <p class="eyebrow">Journal</p>
+            <h2 class="section-title">Culture before commerce</h2>
           </div>
-          <div class="philosophy-copy">
-            <p>
-              ALTERNATIVE RACING&#12392;&#12399;&#12289;&#20182;&#32773;&#12392;&#12398;&#31478;&#20105;&#12391;&#12399;&#12394;&#12367;&#12289;&#33258;&#20998;&#33258;&#36523;&#12392;&#12398;&#23550;&#23769;&#12434;&#30446;&#30340;&#12392;&#12375;&#12383;&#31934;&#31070;&#30340;&#12524;&#12540;&#12473;&#12391;&#12354;&#12427;&#12290;
-            </p>
-            <p>
-              &#20154;&#12399;&#12300;&#36523;&#12539;&#21475;&#12539;&#24847;&#12301;&#12392;&#12356;&#12358;&#19977;&#26989;&#12395;&#12424;&#12387;&#12390;&#29694;&#23455;&#12434;&#21109;&#12427;&#12290;&#34892;&#21205;&#12289;&#35328;&#33865;&#12289;&#24605;&#32771;&#12434;&#19968;&#33268;&#12373;&#12379;&#12289;&#30952;&#12365;&#19978;&#12370;&#12427;&#12371;&#12392;&#12391;&#12289;&#26412;&#26469;&#12398;&#21147;&#12399;&#35299;&#25918;&#12373;&#12428;&#12427;&#12290;
-            </p>
-            <p>
-              Threefold Karma&#12399;&#12381;&#12398;&#35937;&#24500;&#12290;&#24515;&#12434;&#25972;&#12360;&#12289;&#35328;&#33865;&#12434;&#36984;&#12403;&#12289;&#34892;&#21205;&#12391;&#35388;&#26126;&#12377;&#12427;&#12290;&#12381;&#12398;&#31309;&#12415;&#37325;&#12397;&#12364;&#26410;&#26469;&#12434;&#22793;&#12360;&#12427;&#12290;
-            </p>
-          </div>
-        </section>
+          <p class="lead">
+            検索だけに寄せない。競輪、禅、身体、精神性を読み物として蓄積し、ブランドの空気を育てる。
+          </p>
+        </div>
 
-        <section class="section shop-band" id="shop" aria-label="Shop collections">
-          <div class="shop-head">
-            <div>
-              <p class="section-kicker">Shop</p>
-              <h2>Built for movement</h2>
-            </div>
-            <p>
-              &#12524;&#12540;&#12473;&#12289;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#12289;&#12480;&#12531;&#12473;&#12290;ALTERNATIVE RACING&#12398;&#19977;&#12388;&#12398;&#12521;&#12452;&#12531;&#12434;&#12289;&#30446;&#30340;&#12363;&#12425;&#36984;&#12406;&#12290;
-            </p>
-          </div>
-          <div class="shop-grid">
-            <a class="shop-card" href="#detail-jerseys" data-tab="tab-jerseys">
-              <div class="shop-card-media">
-                <img src="jersey.png" alt="Alternative Racing race line" />
-              </div>
-              <div class="shop-card-copy">
-                <h3>Race Line</h3>
-                <p>One-piece jersey / Long tights</p>
-              </div>
-            </a>
-            <a class="shop-card" href="#detail-base-layers" data-tab="tab-base-layers">
-              <div class="shop-card-media">
-                <img src="assets/base-layer-design.png" alt="Alternative Racing base layer line" />
-              </div>
-              <div class="shop-card-copy">
-                <h3>Base Layers</h3>
-                <p>Inner shirt for sport and conditioning</p>
-              </div>
-            </a>
-            <a class="shop-card" href="#detail-street-line" data-tab="tab-street-line">
-              <div class="shop-card-media">
-                <img src="assets/off-bike-design.png" alt="Alternative Racing street line" />
-              </div>
-              <div class="shop-card-copy">
-                <h3>Street Line</h3>
-                <p>Dancer line / Off-bike wear</p>
-              </div>
-            </a>
-          </div>
-        </section>
-
-        <section class="category-tabs" id="products" aria-label="Product categories">
-          <input class="category-input" type="radio" name="category" id="tab-jerseys" checked />
-          <input class="category-input" type="radio" name="category" id="tab-base-layers" />
-          <input class="category-input" type="radio" name="category" id="tab-street-line" />
-
-          <div class="categories">
-            <label
-              class="category"
-              style="--category-image: url('jersey.png')"
-              for="tab-jerseys"
-              tabindex="0"
-              role="button"
-              aria-controls="detail-jerseys"
-              aria-expanded="true"
-              aria-pressed="true"
-            >
-              <span class="category-kicker">01 / Race line</span>
-              <span class="category-name">Jerseys</span>
-            </label>
-            <label
-              class="category"
-              style="--category-image: url('assets/base-layer-design.png')"
-              for="tab-base-layers"
-              tabindex="0"
-              role="button"
-              aria-controls="detail-base-layers"
-              aria-expanded="false"
-              aria-pressed="false"
-            >
-              <span class="category-kicker">02 / Sport base</span>
-              <span class="category-name">Base Layers</span>
-            </label>
-            <label
-              class="category"
-              style="--category-image: url('assets/off-bike-design.png')"
-              for="tab-street-line"
-              tabindex="0"
-              role="button"
-              aria-controls="detail-street-line"
-              aria-expanded="false"
-              aria-pressed="false"
-            >
-              <span class="category-kicker">03 / Dance street</span>
-              <span class="category-name">Street Line</span>
-            </label>
-          </div>
-
-          <div class="details" aria-live="polite">
-            <article class="detail-panel" id="detail-jerseys">
-              <div class="detail-copy">
-                <p class="section-kicker">Selected category</p>
-                <h2 class="category-title">Jerseys</h2>
-                <p>
-                  &#20182;&#32773;&#12392;&#12398;&#31478;&#20105;&#12391;&#12399;&#12394;&#12367;&#12289;&#33258;&#20998;&#33258;&#36523;&#12392;&#21521;&#12365;&#21512;&#12358;&#12383;&#12417;&#12398;&#12497;&#12501;&#12457;&#12540;&#12510;&#12531;&#12473;&#12521;&#12452;&#12531;&#12290;&#12524;&#12540;&#12473;&#12391;&#12418;&#12289;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#12391;&#12418;&#12289;&#34892;&#21205;&#12391;&#33258;&#20998;&#12434;&#35388;&#26126;&#12377;&#12427;&#12290;
-                </p>
-                <ul class="detail-meta">
-                  <li>Race</li>
-                  <li>Training</li>
-                  <li>Sharp black</li>
-                </ul>
-                <div class="product-list" aria-label="Jerseys products">
-                  <article
-                    class="product-card is-active"
-                    tabindex="0"
-                    role="button"
-                    data-preview="jersey.png"
-                    data-target="jerseys-preview"
-                    data-alt="Alternative Racing one-piece jersey product image"
-                    aria-pressed="true"
-                  >
-                    <img class="product-thumb" src="jersey.png" alt="Alternative Racing one-piece jersey" />
-                    <div>
-                      <h3>One-piece Jersey</h3>
-                      <p>&#31478;&#25216;&#29992;&#12527;&#12531;&#12500;&#12540;&#12473;&#12479;&#12452;&#12503;</p>
-                    </div>
-                  </article>
-                  <article
-                    class="product-card"
-                    tabindex="0"
-                    role="button"
-                    data-preview="assets/racing-tights.png"
-                    data-target="jerseys-preview"
-                    data-alt="Alternative Racing long tights design sheet"
-                    aria-pressed="false"
-                  >
-                    <img class="product-thumb" src="assets/racing-tights.png" alt="Alternative Racing long tights" />
-                    <div>
-                      <h3>Long Tights</h3>
-                      <p>&#12524;&#12540;&#12473;&#12539;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#21521;&#12369;</p>
-                    </div>
-                  </article>
-                </div>
-                <div class="cta-row">
-                  <a class="cta-link" href="mailto:hello@example.com">&#21839;&#12356;&#21512;&#12431;&#12379;</a>
-                  <a class="cta-link" href="#" aria-disabled="true">&#36092;&#20837;&#28310;&#20633;&#20013;</a>
-                </div>
-              </div>
-              <figure class="product-frame" aria-label="One-piece jersey product image">
-                <img
-                  class="product-image"
-                  id="jerseys-preview"
-                  src="jersey.png"
-                  alt="Alternative Racing one-piece jersey product image"
-                />
-              </figure>
-            </article>
-
-            <article class="detail-panel" id="detail-base-layers">
-              <div class="detail-copy">
-                <p class="section-kicker">Selected category</p>
-                <h2 class="category-title">Base Layers</h2>
-                <p>
-                  &#36523;&#20307;&#12398;&#21205;&#12365;&#12434;&#25903;&#12360;&#12427;&#12505;&#12540;&#12473;&#12524;&#12452;&#12516;&#12540;&#12290;&#12488;&#12524;&#12540;&#12491;&#12531;&#12464;&#12289;&#12524;&#12540;&#12473;&#12289;&#26085;&#12293;&#12398;&#12467;&#12531;&#12487;&#12451;&#12471;&#12519;&#12531;&#12434;&#20869;&#20596;&#12363;&#12425;&#25972;&#12360;&#12427;&#12290;
-                </p>
-                <ul class="detail-meta">
-                  <li>Training</li>
-                  <li>Close fit</li>
-                  <li>Conditioning</li>
-                </ul>
-                <div class="product-list" aria-label="Base Layers products">
-                  <article class="product-card">
-                    <img class="product-thumb" src="assets/base-layer-design.png" alt="Alternative Racing inner shirt" />
-                    <div>
-                      <h3>Inner Shirt</h3>
-                      <p>Threefold Karma base layer</p>
-                    </div>
-                  </article>
-                </div>
-                <div class="cta-row">
-                  <a class="cta-link" href="mailto:hello@example.com">&#21839;&#12356;&#21512;&#12431;&#12379;</a>
-                  <a class="cta-link" href="#" aria-disabled="true">&#36092;&#20837;&#28310;&#20633;&#20013;</a>
-                </div>
-              </div>
-              <figure class="product-frame" aria-label="Base layer design sheet">
-                <img
-                  class="product-image design-sheet"
-                  src="assets/base-layer-design.png"
-                  alt="Alternative Racing base layer design sheet"
-                />
-              </figure>
-            </article>
-
-            <article class="detail-panel" id="detail-street-line">
-              <div class="detail-copy">
-                <p class="section-kicker">Selected category</p>
-                <h2 class="category-title">Street Line</h2>
-                <p>
-                  &#12480;&#12531;&#12473;&#12392;&#12473;&#12488;&#12522;&#12540;&#12488;&#12398;&#12383;&#12417;&#12398;&#12521;&#12452;&#12531;&#12290;&#12458;&#12540;&#12523;&#12489;&#12473;&#12463;&#12540;&#12523;&#12289;&#12511;&#12489;&#12523;&#12473;&#12463;&#12540;&#12523;&#12398;&#31354;&#27671;&#12434;&#12414;&#12392;&#12356;&#12289;&#21205;&#12365;&#12391;&#33258;&#20998;&#12398;&#36947;&#12434;&#25551;&#12367;&#12290;
-                </p>
-                <ul class="detail-meta">
-                  <li>Hip hop</li>
-                  <li>Street</li>
-                  <li>Movement</li>
-                </ul>
-                <div class="product-list" aria-label="Street Line products">
-                  <article class="product-card">
-                    <img class="product-thumb" src="assets/off-bike-design.png" alt="Alternative Racing off-bike long T-shirt" />
-                    <div>
-                      <h3>Oversize Long T-shirt</h3>
-                      <p>Dancer line / Off-bike wear</p>
-                    </div>
-                  </article>
-                </div>
-                <div class="cta-row">
-                  <a class="cta-link" href="mailto:hello@example.com">&#21839;&#12356;&#21512;&#12431;&#12379;</a>
-                  <a class="cta-link" href="#" aria-disabled="true">&#36092;&#20837;&#28310;&#20633;&#20013;</a>
-                </div>
-              </div>
-              <figure class="product-frame" aria-label="Street line design sheet">
-                <img
-                  class="product-image design-sheet"
-                  src="assets/off-bike-design.png"
-                  alt="Alternative Racing off-bike street line design sheet"
-                />
-              </figure>
-            </article>
-          </div>
-        </section>
+        <div class="journal-grid">
+          <a class="journal-card" href="#top">
+            <p>Essay 01</p>
+            <h3>競輪哲学。対戦相手などいない。</h3>
+            <p>ライン、恐れ、読み、沈黙。レースを精神の形式として見る。</p>
+          </a>
+          <a class="journal-card" href="#top">
+            <p>Essay 02</p>
+            <h3>禅とスプリント。呼吸が速度になる瞬間。</h3>
+            <p>無我は逃避ではなく、身体が判断を追い越す状態。</p>
+          </a>
+          <a class="journal-card" href="#top">
+            <p>Essay 03</p>
+            <h3>Hannya Rider と WAnoMono の入口。</h3>
+            <p>宗教ではなく、競技を通した精神世界としての日本文化。</p>
+          </a>
+        </div>
       </section>
     </main>
-    <script>
-      const categoryCards = document.querySelectorAll(".category");
-      const productCards = document.querySelectorAll(".product-card[data-preview]");
-      const shopCards = document.querySelectorAll(".shop-card[data-tab]");
 
-      const syncCategoryState = () => {
-        categoryCards.forEach((category) => {
-          const input = document.getElementById(category.htmlFor);
-          const isSelected = Boolean(input?.checked);
-
-          category.setAttribute("aria-expanded", String(isSelected));
-          category.setAttribute("aria-pressed", String(isSelected));
-        });
-      };
-
-      categoryCards.forEach((category) => {
-        const input = document.getElementById(category.htmlFor);
-        const targetId = category.getAttribute("aria-controls");
-
-        category.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            category.click();
-          }
-        });
-
-        category.addEventListener("click", () => {
-          window.setTimeout(() => {
-            document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 80);
-        });
-
-        input?.addEventListener("change", syncCategoryState);
-        input?.addEventListener("change", () => {
-          window.setTimeout(() => {
-            document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 80);
-        });
-      });
-
-      const selectProduct = (card) => {
-        const target = document.getElementById(card.dataset.target);
-
-        if (!target) {
-          return;
-        }
-
-        target.src = card.dataset.preview;
-        target.alt = card.dataset.alt || "";
-
-        document
-          .querySelectorAll(`.product-card[data-target="${card.dataset.target}"]`)
-          .forEach((item) => {
-            const isSelected = item === card;
-            item.classList.toggle("is-active", isSelected);
-            item.setAttribute("aria-pressed", String(isSelected));
-          });
-      };
-
-      productCards.forEach((card) => {
-        card.addEventListener("click", () => selectProduct(card));
-
-        card.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            selectProduct(card);
-          }
-        });
-      });
-
-      shopCards.forEach((card) => {
-        card.addEventListener("click", (event) => {
-          const input = document.getElementById(card.dataset.tab);
-
-          if (!input) {
-            return;
-          }
-
-          event.preventDefault();
-          input.checked = true;
-          syncCategoryState();
-
-          const target = document.querySelector(card.getAttribute("href"));
-          window.setTimeout(() => {
-            target?.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 80);
-        });
-      });
-
-      syncCategoryState();
-    </script>
+    <footer class="site-footer">
+      <span>ALTERNATIVE RACING / WAnoMono</span>
+      <span>Race Your Own Path</span>
+    </footer>
   </body>
 </html>
