@@ -226,14 +226,20 @@
 
       .hero-copy {
         position: relative;
-        max-width: 820px;
+        max-width: min(940px, 92vw);
         margin: clamp(28px, 5vw, 54px) 0 0;
         padding-left: clamp(18px, 2.4vw, 34px);
         color: var(--ink);
         font-family: "Noto Serif JP", serif;
-        font-size: clamp(1.3rem, 2.45vw, 2.65rem);
+        font-size: clamp(1.45rem, 2.45vw, 2.75rem);
         font-weight: 900;
-        line-height: 1.55;
+        line-height: 1.42;
+      }
+
+      .hero-copy span {
+        display: block;
+        width: max-content;
+        max-width: 100%;
       }
 
       .hero-copy::before {
@@ -524,7 +530,8 @@
         }
 
         .hero-copy {
-          font-size: 1.18rem;
+          max-width: 20rem;
+          font-size: 1.22rem;
         }
 
         .product-media {
@@ -565,7 +572,10 @@
             <span>ALTERNATIVE</span>
             <span>RACING</span>
           </h1>
-          <p class="hero-copy">対戦相手などいない。戦っているのは自分自身だ。</p>
+          <p class="hero-copy">
+            <span>対戦相手などいない。</span>
+            <span>戦っているのは自分自身だ。</span>
+          </p>
           <div class="hero-actions">
             <a class="button" href="#products">View products</a>
             <a class="button" href="#world">Enter world</a>
