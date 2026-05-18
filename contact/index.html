@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ALTERNATIVE RACINGへの問い合わせページ。制作、受注、取材、協業について。"
+    />
+    <title>Contact | ALTERNATIVE RACING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #020202;
+        --ink: #f4f1ec;
+        --muted: #aaa39a;
+        --dim: rgba(244, 241, 236, 0.64);
+        --line: rgba(244, 241, 236, 0.16);
+        --red: #d90024;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 72% 18%, rgba(217, 0, 36, 0.12), transparent 30rem),
+          linear-gradient(180deg, #050505 0%, #020202 58%, #090909 100%);
+        color: var(--ink);
+        font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      body::before {
+        position: fixed;
+        top: 12vh;
+        right: -14vw;
+        z-index: -1;
+        width: min(78vw, 900px);
+        aspect-ratio: 1;
+        content: "";
+        background: url("../logo.png") center / contain no-repeat;
+        opacity: 0.11;
+        transform: rotate(-8deg);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header,
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 22px clamp(18px, 4vw, 58px);
+      }
+
+      .site-header {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        mix-blend-mode: difference;
+      }
+
+      .brand-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .brand-mark::before {
+        width: 8px;
+        height: 8px;
+        content: "";
+        background: var(--red);
+      }
+
+      .site-nav,
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(14px, 2.4vw, 30px);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .site-nav a,
+      .footer-links a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible,
+      .footer-links a:hover,
+      .footer-links a:focus-visible {
+        color: var(--ink);
+        outline: none;
+      }
+
+      main {
+        display: grid;
+        align-items: end;
+        min-height: 100svh;
+        padding: clamp(120px, 18vh, 190px) clamp(18px, 4vw, 58px) 84px;
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.78fr);
+        gap: clamp(36px, 7vw, 110px);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: clamp(44px, 8vw, 96px);
+      }
+
+      .eyebrow {
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(4.6rem, 15vw, 13rem);
+        font-weight: 900;
+        line-height: 0.78;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        margin: 0 0 34px;
+        color: var(--ink);
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1.2rem, 2.2vw, 2rem);
+        font-weight: 900;
+        line-height: 1.65;
+      }
+
+      .contact-panel {
+        display: grid;
+        gap: 22px;
+        align-self: end;
+        padding: clamp(24px, 4vw, 42px);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+          rgba(0, 0, 0, 0.58);
+      }
+
+      .contact-panel p {
+        margin: 0;
+        color: var(--dim);
+        line-height: 1.85;
+      }
+
+      .contact-link {
+        display: inline-flex;
+        width: fit-content;
+        border: 1px solid var(--line);
+        padding: 14px 18px;
+        color: var(--ink);
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .contact-link:hover,
+      .contact-link:focus-visible {
+        border-color: var(--red);
+        outline: none;
+      }
+
+      .note-list {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.7;
+        list-style: none;
+      }
+
+      .note-list li::before {
+        color: var(--red);
+        content: "- ";
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        .site-nav {
+          display: none;
+        }
+
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: clamp(4rem, 22vw, 7.5rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand-mark" href="../">Alternative Racing</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../#products">Products</a>
+        <a href="../#world">World</a>
+        <a href="../#journal">Journal</a>
+        <a href="../about/">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact" aria-label="Contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h1>Speak Quietly</h1>
+        </div>
+        <div class="contact-panel">
+          <p class="lead">制作、受注、取材、協業について。</p>
+          <p>
+            ALTERNATIVE RACINGは、少数生産と世界観の構築を前提に進行しています。
+            商品、映像、記事、コラボレーションに関する連絡はこちらへ。
+          </p>
+          <a class="contact-link" href="mailto:product@daitovalve.co.jp">product@daitovalve.co.jp</a>
+          <ul class="note-list">
+            <li>受注生産・制作相談</li>
+            <li>Journal / 取材 / 掲載相談</li>
+            <li>映像・写真・競輪文化に関する協業</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>ALTERNATIVE RACING</span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../about/">ABOUT</a>
+        <a href="../contact/">CONTACT</a>
+        <a href="../privacy/">POLICY</a>
+      </nav>
+    </footer>
+  </body>
+</html>

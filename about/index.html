@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ALTERNATIVE RACINGの思想と運動性について。競争ではなく、自分自身との対峙を軸にしたブランドメディア。"
+    />
+    <title>About the Movement | ALTERNATIVE RACING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #020202;
+        --ink: #f4f1ec;
+        --muted: #aaa39a;
+        --dim: rgba(244, 241, 236, 0.64);
+        --line: rgba(244, 241, 236, 0.16);
+        --red: #d90024;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 78% 12%, rgba(217, 0, 36, 0.12), transparent 32rem),
+          linear-gradient(180deg, #050505 0%, #020202 58%, #090909 100%);
+        color: var(--ink);
+        font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        content: "";
+        opacity: 0.34;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 96px 96px;
+        mask-image: linear-gradient(to bottom, black, transparent 84%);
+      }
+
+      body::after {
+        position: fixed;
+        top: 8vh;
+        right: -12vw;
+        z-index: -1;
+        width: min(82vw, 980px);
+        aspect-ratio: 1;
+        content: "";
+        background: url("../logo.png") center / contain no-repeat;
+        opacity: 0.12;
+        transform: rotate(-8deg);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header,
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 22px clamp(18px, 4vw, 58px);
+      }
+
+      .site-header {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        mix-blend-mode: difference;
+      }
+
+      .brand-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .brand-mark::before {
+        width: 8px;
+        height: 8px;
+        content: "";
+        background: var(--red);
+      }
+
+      .site-nav,
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(14px, 2.4vw, 30px);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .site-nav a,
+      .footer-links a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible,
+      .footer-links a:hover,
+      .footer-links a:focus-visible {
+        color: var(--ink);
+        outline: none;
+      }
+
+      main {
+        padding: clamp(120px, 18vh, 190px) clamp(18px, 4vw, 58px) 84px;
+      }
+
+      .page-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.7fr);
+        gap: clamp(36px, 7vw, 110px);
+        align-items: end;
+        min-height: 72svh;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: clamp(40px, 8vw, 96px);
+      }
+
+      .eyebrow {
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 10ch;
+        margin: 0;
+        font-size: clamp(4.4rem, 13vw, 12rem);
+        font-weight: 900;
+        line-height: 0.78;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1.35rem, 3vw, 2.7rem);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: clamp(32px, 7vw, 110px);
+        padding-top: clamp(56px, 9vw, 110px);
+      }
+
+      .content h2 {
+        margin: 0;
+        font-size: clamp(1.35rem, 3vw, 2.4rem);
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+      }
+
+      .prose {
+        display: grid;
+        gap: 26px;
+        color: var(--dim);
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1rem, 1.5vw, 1.12rem);
+        line-height: 2.05;
+      }
+
+      .prose p {
+        margin: 0;
+      }
+
+      .rule-list {
+        display: grid;
+        gap: 1px;
+        margin-top: 46px;
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+
+      .rule-list div {
+        display: grid;
+        grid-template-columns: 12ch minmax(0, 1fr);
+        gap: 18px;
+        padding: 22px;
+        background: rgba(0, 0, 0, 0.62);
+      }
+
+      .rule-list b {
+        color: var(--ink);
+        font-size: 0.76rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .rule-list span {
+        color: var(--dim);
+        line-height: 1.8;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        .site-nav {
+          display: none;
+        }
+
+        .page-hero,
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: clamp(4rem, 21vw, 7rem);
+        }
+
+        .rule-list div {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand-mark" href="../">Alternative Racing</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../#products">Products</a>
+        <a href="../#world">World</a>
+        <a href="../#journal">Journal</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero" aria-label="About the Movement">
+        <div>
+          <p class="eyebrow">About the Movement</p>
+          <h1>Race Within</h1>
+        </div>
+        <p class="lead">
+          対戦相手などいない。戦っているのは、自分自身だ。
+        </p>
+      </section>
+
+      <section class="content" aria-label="ALTERNATIVE RACING philosophy">
+        <div>
+          <p class="eyebrow">Philosophy</p>
+          <h2>競争ではなく、対峙のためのレース。</h2>
+        </div>
+        <div>
+          <div class="prose">
+            <p>
+              ALTERNATIVE RACINGとは、他者との競争ではなく、自分自身との対峙を目的とした精神的レースである。
+            </p>
+            <p>
+              人は「身・口・意」によって現実を創る。行動、言葉、思考。そのすべてを一致させ、磨き上げることで、初めて本来の力は解放される。
+            </p>
+            <p>
+              競技の中で戦っている相手は、他者ではない。恐れ、弱さ、迷いという、自分自身の内なる存在そのものだ。
+            </p>
+            <p>
+              心を整え、言葉を選び、行動で証明する。その積み重ねこそがカルマを形成し、未来を変える。
+            </p>
+          </div>
+
+          <div class="rule-list">
+            <div>
+              <b>Gear</b>
+              <span>思想に共鳴した者がまとうもの。販売物である前に、精神性への参加証として存在する。</span>
+            </div>
+            <div>
+              <b>World</b>
+              <span>哲学を映像、物語、キャラクター、断片として具現化する場所。まだ名前を出さず、匂いだけを残す。</span>
+            </div>
+            <div>
+              <b>Journal</b>
+              <span>競輪、精神性、身体、言葉、文化を活字として語るブランドメディア。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>ALTERNATIVE RACING</span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../about/">ABOUT</a>
+        <a href="../contact/">CONTACT</a>
+        <a href="../privacy/">POLICY</a>
+      </nav>
+    </footer>
+  </body>
+</html>
