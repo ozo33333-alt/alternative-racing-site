@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Notes from the Bank: essays from ALTERNATIVE RACING on KEIRIN, silence, pressure, and movement."
+    />
+    <title>Journal | ALTERNATIVE RACING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Serif+JP:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #020202;
+        --ink: #f4f1ec;
+        --muted: #aaa39a;
+        --dim: rgba(244, 241, 236, 0.66);
+        --line: rgba(244, 241, 236, 0.16);
+        --red: #d90024;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 76% 12%, rgba(217, 0, 36, 0.1), transparent 30rem),
+          linear-gradient(180deg, #050505 0%, #020202 62%, #090909 100%);
+        color: var(--ink);
+        font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      body::before {
+        position: fixed;
+        top: 10vh;
+        right: -14vw;
+        z-index: -1;
+        width: min(82vw, 980px);
+        aspect-ratio: 1;
+        content: "";
+        background: url("logo.png") center / contain no-repeat;
+        opacity: 0.08;
+        transform: rotate(-8deg);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header,
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 22px clamp(18px, 4vw, 58px);
+      }
+
+      .site-header {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        mix-blend-mode: difference;
+      }
+
+      .brand-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .brand-mark::before {
+        width: 8px;
+        height: 8px;
+        content: "";
+        background: var(--red);
+      }
+
+      .site-nav,
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(14px, 2.4vw, 30px);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .site-nav a,
+      .footer-links a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      main {
+        padding: clamp(130px, 19vh, 210px) clamp(18px, 4vw, 58px) 92px;
+      }
+
+      .page-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.56fr);
+        gap: clamp(36px, 8vw, 120px);
+        align-items: end;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: clamp(46px, 8vw, 98px);
+      }
+
+      .eyebrow {
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 11ch;
+        font-size: clamp(4.6rem, 14vw, 12.5rem);
+        font-weight: 900;
+        line-height: 0.78;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--dim);
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1.15rem, 2vw, 1.5rem);
+        line-height: 1.8;
+      }
+
+      .journal-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: clamp(56px, 8vw, 110px);
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+
+      .journal-card {
+        min-height: 320px;
+        display: grid;
+        gap: 28px;
+        padding: clamp(22px, 3vw, 34px);
+        background: rgba(0, 0, 0, 0.64);
+        text-decoration: none;
+      }
+
+      .journal-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .journal-card h2 {
+        margin: auto 0 0;
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(1.35rem, 2vw, 2rem);
+        line-height: 1.45;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        .site-nav {
+          display: none;
+        }
+
+        .page-head,
+        .journal-list {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: clamp(4rem, 21vw, 7rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand-mark" href="./">Alternative Racing</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="./#equipment">Equipment</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="journal.html">Journal</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-head" aria-label="Journal">
+        <div>
+          <p class="eyebrow">Journal</p>
+          <h1>Notes from the Bank</h1>
+        </div>
+        <p class="lead">
+          Fragments on racing culture, silence, fear, lines, pressure, and the body in motion.
+        </p>
+      </section>
+
+      <section class="journal-list" aria-label="Journal entries">
+        <a class="journal-card" href="journal/article-template.html">
+          <p>Essay 01</p>
+          <h2>No Rival. Only Reflection.</h2>
+          <p>A note on fear, lines, and the unseen race within.</p>
+        </a>
+        <a class="journal-card" href="journal/article-template.html">
+          <p>Essay 02</p>
+          <h2>Breath Before Speed.</h2>
+          <p>How silence becomes movement.</p>
+        </a>
+        <a class="journal-card" href="journal/article-template.html">
+          <p>Essay 03</p>
+          <h2>The Line Is a Philosophy.</h2>
+          <p>Keirin as timing, trust, pressure, and instinct.</p>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>ALTERNATIVE RACING</span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="philosophy.html">PHILOSOPHY</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="privacy.html">PRIVACY POLICY</a>
+      </nav>
+    </footer>
+  </body>
+</html>
