@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="The philosophy behind ALTERNATIVE RACING: KEIRIN, silence, discipline, and Threefold Karma."
+      content="The philosophy behind ALTERNATIVE RACING: KEIRIN, silence, discipline, Threefold Karma, and small-batch equipment."
     />
+    <!--
+    Google AdSense placeholder:
+    After approval, insert the async AdSense script here.
+    Example:
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    -->
     <title>Philosophy | ALTERNATIVE RACING</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,244 +20,59 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Serif+JP:wght@700;900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #020202;
-        --ink: #f4f1ec;
-        --muted: #aaa39a;
-        --dim: rgba(244, 241, 236, 0.66);
-        --line: rgba(244, 241, 236, 0.16);
-        --red: #d90024;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        background:
-          radial-gradient(circle at 78% 14%, rgba(217, 0, 36, 0.12), transparent 30rem),
-          linear-gradient(180deg, #050505 0%, #020202 62%, #090909 100%);
-        color: var(--ink);
-        font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-      }
-
-      body::before {
-        position: fixed;
-        top: 9vh;
-        right: -12vw;
-        z-index: -1;
-        width: min(82vw, 980px);
-        aspect-ratio: 1;
-        content: "";
-        background: url("logo.png") center / contain no-repeat;
-        opacity: 0.1;
-        transform: rotate(-8deg);
-      }
-
-      a {
-        color: inherit;
-      }
-
-      .site-header,
-      .site-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        padding: 22px clamp(18px, 4vw, 58px);
-      }
-
-      .site-header {
-        position: fixed;
-        inset: 0 0 auto;
-        z-index: 20;
-        mix-blend-mode: difference;
-      }
-
-      .brand-mark {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 0.72rem;
-        font-weight: 900;
-        letter-spacing: 0.22em;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-
-      .brand-mark::before {
-        width: 8px;
-        height: 8px;
-        content: "";
-        background: var(--red);
-      }
-
-      .site-nav,
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: clamp(14px, 2.4vw, 30px);
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-
-      .site-nav a,
-      .footer-links a {
-        color: var(--muted);
-        text-decoration: none;
-      }
-
-      .site-nav a:hover,
-      .site-nav a:focus-visible,
-      .footer-links a:hover,
-      .footer-links a:focus-visible {
-        color: var(--ink);
-        outline: none;
-      }
-
-      main {
-        padding: clamp(130px, 19vh, 210px) clamp(18px, 4vw, 58px) 92px;
-      }
-
-      .page {
-        display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
-        gap: clamp(36px, 8vw, 120px);
-        align-items: end;
-        min-height: 72svh;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: clamp(46px, 8vw, 98px);
-      }
-
-      .eyebrow {
-        margin: 0 0 28px;
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 900;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 0;
-        max-width: 10ch;
-        font-size: clamp(4.6rem, 14vw, 12.5rem);
-        font-weight: 900;
-        line-height: 0.78;
-        letter-spacing: -0.08em;
-        text-transform: uppercase;
-      }
-
-      .statement {
-        display: grid;
-        gap: 24px;
-        color: var(--dim);
-        font-size: clamp(1.05rem, 1.7vw, 1.24rem);
-        line-height: 1.85;
-      }
-
-      .statement strong {
-        color: var(--ink);
-        font-family: "Noto Serif JP", serif;
-        font-size: clamp(1.5rem, 3vw, 2.8rem);
-        line-height: 1.4;
-      }
-
-      .signal-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1px;
-        margin-top: clamp(56px, 8vw, 110px);
-        border: 1px solid var(--line);
-        background: var(--line);
-      }
-
-      .signal {
-        min-height: 240px;
-        padding: clamp(22px, 3vw, 34px);
-        background: rgba(0, 0, 0, 0.62);
-      }
-
-      .signal b {
-        display: block;
-        margin-bottom: 42px;
-        color: var(--ink);
-        font-size: 0.78rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-
-      .signal span {
-        color: var(--dim);
-        line-height: 1.8;
-      }
-
-      .site-footer {
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-      }
-
-      @media (max-width: 860px) {
-        .site-nav {
-          display: none;
-        }
-
-        .page,
-        .signal-grid {
-          grid-template-columns: 1fr;
-        }
-
-        h1 {
-          font-size: clamp(4rem, 21vw, 7rem);
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand-mark" href="./">Alternative Racing</a>
+      <a class="brand-mark" href="index.html#top">Alternative Racing</a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="./#equipment">Equipment</a>
+        <a href="index.html#equipment">Equipment</a>
         <a href="philosophy.html">Philosophy</a>
-        <a href="journal.html">Journal</a>
+        <a href="journal/">Journal</a>
       </nav>
     </header>
 
     <main>
-      <section class="page" aria-label="Philosophy">
+      <section class="page-hero" aria-label="Philosophy">
         <div>
           <p class="eyebrow">Philosophy / Threefold Karma</p>
-          <h1>Race Within</h1>
+          <h1 class="page-title">Race Within</h1>
         </div>
-        <div class="statement">
+        <p class="page-lead">
           <strong>No Rival. Only Reflection.</strong>
+          Born from Japanese racing culture. Built for movement, silence, and discipline.
+        </p>
+      </section>
+
+      <section class="content-grid" aria-label="Brand philosophy">
+        <div class="panel">
+          <p class="eyebrow">Origin</p>
           <p>
-            ALTERNATIVE RACING moves through KEIRIN, silence, repetition, and the pressure that cannot be seen from outside the line.
+            ALTERNATIVE RACING comes from Japanese KEIRIN culture, but it is not a tourist image of Japan.
+            It is a brand media project for speed, repetition, pressure, and self-confrontation.
           </p>
+        </div>
+        <div class="panel">
+          <p class="eyebrow">Position</p>
           <p>
-            Body. Speech. Mind. The movement is physical, but the race is internal.
+            Not a mass-market cycling brand. Not a gambling promotion site.
+            The focus is culture, equipment, editorial credibility, and the interior race that happens before the move.
           </p>
         </div>
       </section>
 
-      <section class="signal-grid" aria-label="Philosophy signals">
+      <section class="signal-grid" aria-label="Signals">
         <div class="signal">
-          <b>Keirin</b>
-          <span>Speed, lines, timing, and pressure. Japanese racing culture without decoration.</span>
+          <b>Body</b>
+          <span>Movement under pressure. The body as proof, not decoration.</span>
         </div>
         <div class="signal">
-          <b>Zen</b>
-          <span>Not religion. A condition of attention. Breath before motion.</span>
+          <b>Speech</b>
+          <span>Few words. Chosen words. The signal behind the movement.</span>
         </div>
         <div class="signal">
-          <b>Karma</b>
-          <span>Every choice returns. Body, speech, and mind leave a signal.</span>
+          <b>Mind</b>
+          <span>The unseen race. Fear, timing, instinct, and the self in motion.</span>
         </div>
       </section>
     </main>
@@ -262,6 +83,7 @@
         <a href="philosophy.html">PHILOSOPHY</a>
         <a href="contact.html">CONTACT</a>
         <a href="privacy.html">PRIVACY POLICY</a>
+        <a href="terms.html">TERMS</a>
       </nav>
     </footer>
   </body>

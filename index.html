@@ -7,6 +7,12 @@
       name="description"
       content="ALTERNATIVE RACING - Independent racing media shaped by KEIRIN, silence, discipline, and Threefold Karma."
     />
+    <!--
+    Google AdSense placeholder:
+    After approval, insert the async AdSense script here.
+    Example:
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    -->
     <title>ALTERNATIVE RACING</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -519,6 +525,23 @@
         outline: none;
       }
 
+      .ads-wrapper {
+        margin: clamp(32px, 5vw, 64px) 0;
+        padding: clamp(18px, 3vw, 28px);
+        border: 1px dashed var(--line-strong);
+        background: var(--panel);
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .ads-wrapper span {
+        opacity: 0.75;
+      }
+
       @media (max-width: 980px) {
         .section-head,
         .world-grid {
@@ -573,11 +596,11 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand-mark" href="#top">Alternative Racing</a>
+      <a class="brand-mark" href="index.html#top">Alternative Racing</a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#equipment">Equipment</a>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#journal">Journal</a>
+        <a href="index.html#equipment">Equipment</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="journal/">Journal</a>
       </nav>
     </header>
 
@@ -593,10 +616,11 @@
           <p class="hero-copy">
             <span>No Rival. Only Reflection.</span>
             <span>Born from Japanese racing culture.</span>
+            <span>Built for movement, silence, and discipline.</span>
           </p>
           <div class="hero-actions">
-            <a class="button" href="#equipment">Equipment</a>
-            <a class="button" href="#philosophy">Philosophy</a>
+            <a class="button" href="index.html#equipment">Explore Equipment</a>
+            <a class="button" href="journal/">Read the Journal</a>
           </div>
         </div>
       </section>
@@ -675,7 +699,7 @@
         </div>
       </section>
 
-      <section class="section world" id="philosophy" aria-label="Philosophy">
+      <section class="section world" id="philosophy-preview" aria-label="Philosophy preview">
         <div class="world-grid">
           <div>
             <p class="eyebrow">Philosophy</p>
@@ -712,29 +736,29 @@
         </div>
       </section>
 
-      <section class="section" id="journal" aria-label="Journal">
+      <section class="section" id="journal-preview" aria-label="Journal preview">
         <div class="section-head">
           <div>
             <p class="eyebrow">Journal</p>
             <h2 class="section-title">Notes from the Bank</h2>
           </div>
           <p class="lead">
-            Essays on racing culture, silence, body, pressure, and the invisible line between fear and movement.
+            Field notes on KEIRIN, training, silence, fear, discipline, and the invisible race within.
           </p>
         </div>
 
         <div class="journal-grid">
-          <a class="journal-card" href="journal.html">
+          <a class="journal-card" href="journal/essay-01.html">
             <p>Essay 01</p>
             <h3>No Rival. Only Reflection.</h3>
             <p>A note on fear, lines, and the unseen race within.</p>
           </a>
-          <a class="journal-card" href="journal.html">
+          <a class="journal-card" href="journal/essay-02.html">
             <p>Essay 02</p>
             <h3>Breath Before Speed.</h3>
             <p>How silence becomes movement.</p>
           </a>
-          <a class="journal-card" href="journal.html">
+          <a class="journal-card" href="journal/essay-03.html">
             <p>Essay 03</p>
             <h3>The Line Is a Philosophy.</h3>
             <p>Keirin as timing, trust, pressure, and instinct.</p>
@@ -750,6 +774,7 @@
         <a href="philosophy.html">PHILOSOPHY</a>
         <a href="contact.html">CONTACT</a>
         <a href="privacy.html">PRIVACY POLICY</a>
+        <a href="terms.html">TERMS</a>
       </nav>
     </footer>
   </body>
