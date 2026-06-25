@@ -136,5 +136,7 @@ micButton.addEventListener("click", () => {
 
 flipButton.setAttribute("aria-pressed", String(flipped));
 micButton.setAttribute("aria-pressed", "false");
-setStatus("マイク停止中");
+if (recognition) {
+  setStatus("マイク停止中");
+}
 clearOldServiceWorkers().catch(() => {});
