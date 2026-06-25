@@ -64,6 +64,7 @@ clearButton.addEventListener("click", () => {
   input.value = "";
   input.placeholder = defaultPlaceholder;
   input.scrollTop = 0;
+  input.blur();
   setListening(false);
 });
 
